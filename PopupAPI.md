@@ -42,7 +42,7 @@ param | type | description
 title | string | Tên của popup
 date | string | ngày tạo bài
 status | string | Trạng Thái Popups
-configs | string | các config của font-end bắn lên
+config | string | các config của font-end bắn lên
 views | string | views của popup
 clicks | string | clicks của popup
 subscribers | string | subscribers của popup
@@ -123,7 +123,7 @@ param | type | description
 title | string | Tên của popup
 date | string | ngày tạo bài
 status | string | Trạng Thái Popups
-configs | string | các config của font-end bắn lên
+config | string | các config của font-end bắn lên
 views | string | views của popup
 clicks | string | clicks của popup
 subscribers | string | subscribers của popup
@@ -174,7 +174,7 @@ https://website.com/wp-json/myshopkit/v1/popups
 <th>Description</th>
 </tr>
 <tr>
-<th>configs</th>
+<th>config</th>
 <th>string</th>
 <th></th>
 <th>Config Popup Do Font-End Bắn Lên</th>
@@ -260,7 +260,7 @@ param | type | description
 title | string | Tên của popup
 date | string | ngày tạo bài
 status | string | Trạng Thái Popups
-configs | string | các config của font-end bắn lên
+config | string | các config của font-end bắn lên
 views | string | views của popup
 clicks | string | clicks của popup
 subscribers | string | subscribers của popup
@@ -342,7 +342,7 @@ https://website.com/wp-json/myshopkit/v1/popups/:id
 <th>trạng thái của popup</th>
 </tr>
 <tr>
-<th>?configs</th>
+<th>?config</th>
 <th>string</th>
 <th>-</th>
 <th>config popup do font-end bắn lên</th>
