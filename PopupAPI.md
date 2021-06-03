@@ -1,10 +1,13 @@
 # PopupAPI
 
 ## 1.Get Popup
+
 ###Method:GET
+
 ###API endpoint:
+
 https://website.com/wp-json/myshopkit/v1/popups/:id
-###Request
+
 #####parameters
 <table>
 <tr>
@@ -57,13 +60,13 @@ export interface Popup {
 
 export interface Item {
     /** ID la id cua popup*/
-    id ?: string
+    id : string
     /** title la tieu de cua popup*/
-    title ?: string
+    title : string
     /** date la thoi gian tao cua popup*/
-    date ?: string
+    date : string
     /** configs la cac setting popup cua font-end*/
-    configs?: []
+    config: []
     /** status la trang thai cua popup*/
     status : (enable | disable)
     /** views la so luot xem cua popup*/
@@ -78,10 +81,14 @@ export interface Item {
 ````
 
 ## 2.Get one Popup one param
+
 ###Method:GET
+
 ###API endpoint:
+
 https://website.com/wp-json/myshopkit/v1/popups/:id/:param
-###Request
+
+
 #####parameters
 <table>
 <tr>
@@ -125,22 +132,22 @@ rate | string | rate của popup
 
 ````ts
 export interface Popup {
-    data: Param
+    data: Data
     /** messege la tin nhan code tra lai*/
     messege: string
     /** status la trang thai cua api sau xu ly*/
     status: 'error' | 'success'
 }
 
-export interface Param {
+export interface Data {
     /** ID la id cua popup*/
-    id ?: string
+    id : string
     /** title la tieu de cua popup*/
-    title ?: string
+    title : string
     /** date la thoi gian tao cua popup*/
-    date ?: string
+    date : string
     /** configs la cac setting popup cua font-end*/
-    configs?: []
+    config: []
     /** status la trang thai cua popup*/
     status : (enable | disable)
     /** views la so luot xem cua popup*/
@@ -193,10 +200,6 @@ https://website.com/wp-json/myshopkit/v1/popups
 </table>
 
 ````ts
-export interface Config{
-    
-}
-
 export interface Popup {
     /** id la id cua popup vua tao*/
     id: string  
@@ -280,15 +283,15 @@ export interface Popup {
     status: 'error' | 'success'
 }
 
-export interface Param {
+export interface Items {
     /** ID la id cua popup*/
-    id ?: string
+    id : string
     /** title la tieu de cua popup*/
-    title ?: string
+    title : string
     /** date la thoi gian tao cua popup*/
-    date ?: string
+    date : string
     /** configs la cac setting popup cua font-end*/
-    configs?: []
+    config: []
     /** status la trang thai cua popup*/
     status : (enable | disable)
     /** views la so luot xem cua popup*/
@@ -302,9 +305,10 @@ export interface Param {
 }
 ````
 ## 5.Update,Patch Popup
+
 ###API endpoint:
-https://website.com/wp-json/myshopkit/v1/popups/id
-###Request
+
+https://website.com/wp-json/myshopkit/v1/popups/:id
 #####parameters
 <table>
 <tr>
@@ -357,9 +361,11 @@ export interface Popup {
 }
 ````
 ## 6.Delete Popup:
+
 ###API endpoint:
+
 https://website.com/wp-json/myshopkit/v1/popups/id
-###Request
+
 #####parameters
 <table>
 <tr>
@@ -392,8 +398,11 @@ export interface Popup {
     status: 'error' | 'success'
 }
 ````
+
 #1: Đổi Tên ID thành id 
+
 #2: Đổi kiểu ID thành string
+
 #3: Thay đổi cấu Trúc data trả về
 
 ````ts
@@ -409,6 +418,9 @@ export interface Popup {
 }
 ````
 #4 Đổi Msg thành Message 
+
 #5 Thêm api get 1 param vd popups/:id/configs
+
 #6 Xem Lại Token 
+
 #7 sửa lại mô tả api post,put (params thành body)
