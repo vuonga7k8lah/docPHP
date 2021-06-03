@@ -51,32 +51,34 @@ rate | string | rate của popup
 
 ````ts
 export interface Popup {
-    data: Item
-    /** messege la tin nhan code tra lai*/
+    data: Data
+    /** messege là tin nhắn trả lại trên sever*/
     messege: string
-    /** status la trang thai cua api sau xu ly*/
+    /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
 }
 
-export interface Item {
-    /** ID la id cua popup*/
+export interface Data {
+    /** id là id của popup*/
     id : string
-    /** title la tieu de cua popup*/
+    /** title Là tiêu đề của popup*/
     title : string
-    /** date la thoi gian tao cua popup*/
+    /** date Là thời gian tạo của popup*/
     date : string
-    /** configs la cac setting popup cua font-end*/
-    config: []
-    /** status la trang thai cua popup*/
+    /** config là các setting popup của font-end*/
+    config: datafontEnd
+    /** status Là trạng thái của popup*/
     status : (enable | disable)
-    /** views la so luot xem cua popup*/
+    /** views Là số lượt xem của popup*/
     views: string,
-    /** clicks la so clicks cua popup*/
+    /** clicks là số lượt clicks của popup*/
     clicks: string,
-    /** subscribers la so luot gmail dc gui cua popup*/
+    /** subscribers là số lượt gmail được gửi của popup*/
     subscribers: string
-    /** rate la danh gia cua popup*/
+    /** rate Là đánh giá của popup*/
     rate:string
+    /** goal là chiến dịch của popup*/
+    goal:string
 }
 ````
 
@@ -133,31 +135,33 @@ rate | string | rate của popup
 ````ts
 export interface Popup {
     data: Data
-    /** messege la tin nhan code tra lai*/
+    /** messege là tin nhắn trả lại trên sever*/
     messege: string
-    /** status la trang thai cua api sau xu ly*/
+    /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
 }
 
 export interface Data {
-    /** ID la id cua popup*/
+    /** id là id của popup*/
     id : string
-    /** title la tieu de cua popup*/
+    /** title Là tiêu đề của popup*/
     title : string
-    /** date la thoi gian tao cua popup*/
+    /** date Là thời gian tạo của popup*/
     date : string
-    /** configs la cac setting popup cua font-end*/
-    config: []
-    /** status la trang thai cua popup*/
+    /** config là các setting popup của font-end*/
+    config: datafontEnd
+    /** status Là trạng thái của popup*/
     status : (enable | disable)
-    /** views la so luot xem cua popup*/
+    /** views Là số lượt xem của popup*/
     views: string,
-    /** clicks la so clicks cua popup*/
+    /** clicks là số lượt clicks của popup*/
     clicks: string,
-    /** subscribers la so luot gmail dc gui cua popup*/
+    /** subscribers là số lượt gmail được gửi của popup*/
     subscribers: string
-    /** rate la danh gia cua popup*/
+    /** rate Là đánh giá của popup*/
     rate:string
+    /** goal là chiến dịch của popup*/
+    goal:string
 }
 ````
 ## 3.Create Popup
@@ -201,11 +205,11 @@ https://website.com/wp-json/myshopkit/v1/popups
 
 ````ts
 export interface Popup {
-    /** id la id cua popup vua tao*/
+    /** id là id của popup vừa tạo*/
     id: string  
-    /** msg la tin nhan code tra lai*/
+    /** messege là tin nhắn trả lại trên sever*/
     messege: string
-    /** status la trang thai cua api sau xu ly*/
+    /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
 }
 ````
@@ -270,38 +274,40 @@ rate | string | rate của popup
 
 interface Data {
     items: Items[];
-    /** maxPages la so paged sau phan trang*/
+    /** maxPages là số paged*/
     maxPages: number 
 }
 
 
 export interface Popup {
     data: Data
-    /** messege la tin nhan code tra lai*/
+    /** messege là tin nhắn code trả lại*/
     messege: string
-    /** status la trang thai cua api sau xu ly*/
+    /** status trang thái code sau khi xử lý API*/
     status: 'error' | 'success'
 }
 
-export interface Items {
-    /** ID la id cua popup*/
+export interface Data {
+    /** id là id của popup*/
     id : string
-    /** title la tieu de cua popup*/
+    /** title Là tiêu đề của popup*/
     title : string
-    /** date la thoi gian tao cua popup*/
+    /** date Là thời gian tạo của popup*/
     date : string
-    /** configs la cac setting popup cua font-end*/
-    config: []
-    /** status la trang thai cua popup*/
+    /** config là các setting popup của font-end*/
+    config: datafontEnd
+    /** status Là trạng thái của popup*/
     status : (enable | disable)
-    /** views la so luot xem cua popup*/
+    /** views Là số lượt xem của popup*/
     views: string,
-    /** clicks la so clicks cua popup*/
+    /** clicks là số lượt clicks của popup*/
     clicks: string,
-    /** subscribers la so luot gmail dc gui cua popup*/
+    /** subscribers là số lượt gmail được gửi của popup*/
     subscribers: string
-    /** rate la danh gia cua popup*/
+    /** rate Là đánh giá của popup*/
     rate:string
+    /** goal là chiến dịch của popup*/
+    goal:string
 }
 ````
 ## 5.Update,Patch Popup
@@ -352,11 +358,11 @@ https://website.com/wp-json/myshopkit/v1/popups/:id
 
 ````ts
 export interface Popup {
-    /** id la id cua bai post*/
+    /** id là id của popup vừa tạo*/
     id: string
-    /** messege la tin nhan code tra lai*/
+    /** messege là tin nhắn trả lại trên sever*/
     messege: string
-    /** status la trang thai cua api sau xu ly*/
+    /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
 }
 ````
@@ -390,11 +396,11 @@ https://website.com/wp-json/myshopkit/v1/popups/id
 
 ````ts
 export interface Popup {
-    /** id la id cua bai post*/
+    /** id là id của popup vừa tạo*/
     id: string
-    /** messege la tin nhan code tra lai*/
+    /** messege là tin nhắn trả lại trên sever*/
     messege: string
-    /** status la trang thai cua api sau xu ly*/
+    /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
 }
 ````
