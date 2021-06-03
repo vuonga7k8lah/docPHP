@@ -54,7 +54,7 @@ goal | string | goal của popup
 export interface Popup {
     data: Data
     /** messege là tin nhắn trả lại trên sever*/
-    messege: string
+    message: string
     /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
 }
@@ -137,7 +137,7 @@ goal | string | goal của popup
 export interface Popup {
     data: Data
     /** messege là tin nhắn trả lại trên sever*/
-    messege: string
+    message: string
     /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
 }
@@ -211,7 +211,7 @@ export interface Popup {
     /** id là id của popup vừa tạo*/
     id: string  
     /** messege là tin nhắn trả lại trên sever*/
-    messege: string
+    message: string
     /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
 }
@@ -288,7 +288,7 @@ interface Data {
 export interface Popup {
     data: Data
     /** messege là tin nhắn code trả lại*/
-    messege: string
+    message: string
     /** status trang thái code sau khi xử lý API*/
     status: 'error' | 'success'
 }
@@ -368,7 +368,7 @@ export interface Popup {
     /** id là id của popup vừa tạo*/
     id: string
     /** messege là tin nhắn trả lại trên sever*/
-    messege: string
+    message: string
     /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
 }
@@ -406,7 +406,7 @@ export interface Popup {
     /** id là id của popup vừa tạo*/
     id: string
     /** messege là tin nhắn trả lại trên sever*/
-    messege: string
+    message: string
     /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
 }
@@ -450,7 +450,7 @@ export interface Popup {
     /** id là id của popup vừa tạo*/
     ids: string
     /** messege là tin nhắn trả lại trên sever*/
-    messege: string
+    message: string
     /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
 }
