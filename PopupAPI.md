@@ -41,12 +41,13 @@ param | type | description
 --- | --- | ---
 title | string | Tên của popup
 date | string | ngày tạo bài
-status | string | Trạng Thái Popups
+active | string | Trạng Thái Popups
 config | string | các config của font-end bắn lên
 views | string | views của popup
 clicks | string | clicks của popup
 subscribers | string | subscribers của popup
 rate | string | rate của popup
+goal | string | goal của popup
 
 
 ````ts
@@ -124,13 +125,13 @@ param | type | description
 --- | --- | ---
 title | string | Tên của popup
 date | string | ngày tạo bài
-status | string | Trạng Thái Popups
+active | string | Trạng Thái Popups
 config | string | các config của font-end bắn lên
 views | string | views của popup
 clicks | string | clicks của popup
 subscribers | string | subscribers của popup
 rate | string | rate của popup
-
+goal | string | goal của popup
 
 ````ts
 export interface Popup {
@@ -151,7 +152,7 @@ export interface Data {
     /** config là các setting popup của font-end*/
     config: datafontEnd
     /** status Là trạng thái của popup*/
-    status : (enable | disable)
+    active : (enable | disable)
     /** views Là số lượt xem của popup*/
     views: string,
     /** clicks là số lượt clicks của popup*/
@@ -165,9 +166,11 @@ export interface Data {
 }
 ````
 ## 3.Create Popup
+
 ###API endpoint:
+
 https://website.com/wp-json/myshopkit/v1/popups
-###Request
+
 #####parameters
 
 <table>
@@ -215,8 +218,9 @@ export interface Popup {
 ````
 ## 4.Get All Popups
 ###API endpoint:
+
 https://website.com/wp-json/myshopkit/v1/popups
-###Request
+
 #####parameters
 
 <table>
@@ -263,12 +267,14 @@ param | type | description
 --- | --- | ---
 title | string | Tên của popup
 date | string | ngày tạo bài
-status | string | Trạng Thái Popups
+active | string | Trạng Thái Popups
 config | string | các config của font-end bắn lên
 views | string | views của popup
 clicks | string | clicks của popup
 subscribers | string | subscribers của popup
 rate | string | rate của popup
+goal | string | goal của popup
+
 
 ````ts
 
@@ -315,6 +321,7 @@ export interface Data {
 ###API endpoint:
 
 https://website.com/wp-json/myshopkit/v1/popups/:id
+
 #####parameters
 <table>
 <tr>
@@ -342,7 +349,7 @@ https://website.com/wp-json/myshopkit/v1/popups/:id
 <th>title của popup</th>
 </tr>
 <tr>
-<th>?status</th>
+<th>?active</th>
 <th>(enable||disable)</th>
 <th>enable</th>
 <th>trạng thái của popup</th>
@@ -398,6 +405,50 @@ https://website.com/wp-json/myshopkit/v1/popups/id
 export interface Popup {
     /** id là id của popup vừa tạo*/
     id: string
+    /** messege là tin nhắn trả lại trên sever*/
+    messege: string
+    /** status là trạng thái code sau xử lý api*/
+    status: 'error' | 'success'
+}
+````
+## 7.Many Delete Popup:
+
+###API endpoint:
+
+https://website.com/wp-json/myshopkit/v1/popups
+
+#####parameters
+<table>
+<tr>
+<th>Form-Data</th>
+<th>Type</th>
+<th>Data Default</th>
+<th>Description</th>
+</tr>
+<tr>
+<th>shopName</th>
+<th>string</th>
+<th>Tên Shop</th>
+<th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
+</tr>
+<tr>
+<th>accessToken</th>
+<th>string</th>
+<th></th>
+<th>Mã token do shopify cấp</th>
+</tr>
+<tr>
+<th>id</th>
+<th>string</th>
+<th></th>
+<th>id của từng popup ví dụ 1,2,3</th>
+</tr>
+</table>
+
+````ts
+export interface Popup {
+    /** id là id của popup vừa tạo*/
+    ids: string
     /** messege là tin nhắn trả lại trên sever*/
     messege: string
     /** status là trạng thái code sau xử lý api*/
