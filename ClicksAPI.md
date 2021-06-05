@@ -49,8 +49,8 @@ thisDay | string |số clicks của popup trong hôm nay
 thisWeek | string | số clicks của popup trong tuần này
 thisMonth | string | số clicks của popup trong tháng này
 yesterday | string | số clicks của popup trong ngày hôm qua
-lastWeek | string | số clicks của popup trong ngày hôm qua
-lastMonth | string | số clicks của popup trong ngày hôm qua
+lastWeek | string | số clicks của popup tuần trước
+lastMonth | string | số clicks của popup Tháng Trước
 customerDays | string | Xem Bảng Dưới
 
 Tham Số của customerDays
