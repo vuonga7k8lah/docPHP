@@ -49,16 +49,16 @@ thisDay | string |số clicks của popup trong hôm nay
 thisWeek | string | số clicks của popup trong tuần này
 thisMonth | string | số clicks của popup trong tháng này
 yesterday | string | số clicks của popup trong ngày hôm qua
-last7DaysInWeek | string | số clicks của popup trong ngày hôm qua
-last7DaysInMonth | string | số clicks của popup trong ngày hôm qua
+lastWeek | string | số clicks của popup trong ngày hôm qua
+lastMonth | string | số clicks của popup trong ngày hôm qua
 customerDays | string | Xem Bảng Dưới
 
 Tham Số của customerDays
 
 param | type | description
 --- | --- | ---
-beginDays | string |ngày bắt đầu trong khoảng tìm kiếm 
-endDays | string |ngày kết thúc trong khoảng tìm kiếm 
+beginDays | string |ngày bắt đầu trong khoảng tìm kiếm
+endDays | string |ngày kết thúc trong khoảng tìm kiếm
 
 
 
@@ -70,7 +70,7 @@ export interface Popup {
     message: string
 }
 ````
-## 2.Create Popup
+## 2.Create Click
 
 ###Method:POST
 
@@ -108,13 +108,16 @@ https://website.com/wp-json/myshopkit/v1/insights/clicks
 
 ````ts
 export interface Popup {
-    /** clickID là id của clicks*/
-    clickID: number
+    data: Data
     /** messege là tin nhắn trả lại trên sever*/
     message: string
 }
+export interface Data {
+    /** id là id của clicks*/
+    id: string
+}
 ````
-## 3.Update Popup
+## 3.Update Click
 
 ###Method:PUT
 
@@ -152,13 +155,16 @@ https://website.com/wp-json/myshopkit/v1/insights/clicks
 
 ````ts
 export interface Popup {
-    /** clickID là id của clicks*/
-    clickID: number
+    data: Data
     /** messege là tin nhắn trả lại trên sever*/
     message: string
 }
+export interface Data {
+    /** id là id của clicks*/
+    id: string
+}
 ````
-## 4.Delete Popup
+## 4.Delete Click
 
 ###Method:DELETE
 
@@ -196,9 +202,12 @@ https://website.com/wp-json/myshopkit/v1/insights/clicks
 
 ````ts
 export interface Popup {
-    /** clickID là id của clicks*/
-    clickID: number
+    data: Data
     /** messege là tin nhắn trả lại trên sever*/
     message: string
+}
+export interface Data {
+    /** id là id của clicks*/
+    id: string
 }
 ````
