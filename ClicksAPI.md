@@ -1,6 +1,6 @@
 # Clicks API
 
-## 1.Get Popup
+## 1.Get Clicks
 
 ###Method:GET
 
