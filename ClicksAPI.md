@@ -50,9 +50,9 @@ thisWeek | string | số clicks của popup trong tuần này
 thisMonth | string | số clicks của popup trong tháng này
 lastWeek | string | số clicks của popup tuần trước
 lastMonth | string | số clicks của popup Tháng Trước
-toDay | string | số clicks của popup trong ngày
+today | string | số clicks của popup trong ngày
 yesterday | string | số clicks của popup ngày hôm qua
-customer | string | Xem Bảng Dưới
+custom | string | Xem Bảng Dưới
 
 Tham Số của customer
 
