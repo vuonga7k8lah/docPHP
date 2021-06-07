@@ -45,10 +45,8 @@ Tham Số của filter
 
 param | type | description
 --- | --- | ---
-thisDay | string |số clicks của popup trong hôm nay
 thisWeek | string | số clicks của popup trong tuần này
 thisMonth | string | số clicks của popup trong tháng này
-yesterday | string | số clicks của popup trong ngày hôm qua
 lastWeek | string | số clicks của popup tuần trước
 lastMonth | string | số clicks của popup Tháng Trước
 customerDays | string | Xem Bảng Dưới
@@ -63,11 +61,22 @@ endDays | string |ngày kết thúc trong khoảng tìm kiếm
 
 
 ````ts
-export interface Popup {
-    /** data là số lượng clicks*/
-    data: number
+export interface clicks {
+    data: Data
     /** messege là tin nhắn trả lại trên sever*/
     message: string
+}
+export interface Data {
+    /** statistic là tổng số lượng clicks dựa theo filter*/
+    statistic: number
+    /** messege là tin nhắn trả lại trên sever*/
+    comparation: Item[]
+}
+export interface Item{
+    /** statistic là số lượng clicks dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
+    statistic:number
+    /** desc là tên của filter*/
+    desc:string
 }
 ````
 ## 2.Create Click
@@ -154,7 +163,7 @@ https://website.com/wp-json/myshopkit/v1/insights/clicks
 </table>
 
 ````ts
-export interface Popup {
+export interface Clicks {
     data: Data
     /** messege là tin nhắn trả lại trên sever*/
     message: string
@@ -201,7 +210,7 @@ https://website.com/wp-json/myshopkit/v1/insights/clicks
 </table>
 
 ````ts
-export interface Popup {
+export interface Clicks {
     data: Data
     /** messege là tin nhắn trả lại trên sever*/
     message: string
