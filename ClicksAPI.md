@@ -49,16 +49,16 @@ thisWeek | string | số clicks của popup trong tuần này
 thisMonth | string | số clicks của popup trong tháng này
 lastWeek | string | số clicks của popup tuần trước
 lastMonth | string | số clicks của popup Tháng Trước
-customerDays | string | Xem Bảng Dưới
+toDay | string | số clicks của popup trong ngày
+yesterday | string | số clicks của popup ngày hôm qua 
+customer | string | Xem Bảng Dưới
 
-Tham Số của customerDays
+Tham Số của customer
 
 param | type | description
 --- | --- | ---
-beginDays | string |ngày bắt đầu trong khoảng tìm kiếm
-endDays | string |ngày kết thúc trong khoảng tìm kiếm
-
-
+start | string |ngày bắt đầu trong khoảng tìm kiếm
+end | string |ngày kết thúc trong khoảng tìm kiếm
 
 ````ts
 export interface clicks {
@@ -67,16 +67,16 @@ export interface clicks {
     message: string
 }
 export interface Data {
-    /** statistic là tổng số lượng clicks dựa theo filter*/
-    statistic: number
+    /** summary là tổng số lượng clicks dựa theo filter*/
+    summary: number
     /** messege là tin nhắn trả lại trên sever*/
-    comparation: Item[]
+    timeline: Item[]
 }
 export interface Item{
-    /** statistic là số lượng clicks dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
-    statistic:number
-    /** desc là tên của filter*/
-    desc:string
+    /** summary là số lượng clicks dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
+    summary:number
+    /** label là tên của filter*/
+    label:string
 }
 ````
 ## 2.Create Click
