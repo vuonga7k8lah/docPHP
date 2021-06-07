@@ -73,6 +73,10 @@ export interface Data {
     timeline: Item[]
 }
 export interface Item{
+    /**
+     * id ngẫu nhiên và duy nhất
+     */
+    id:string
     /** summary là số lượng clicks dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
     summary:number
     /** label là tên của filter*/
