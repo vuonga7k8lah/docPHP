@@ -2,13 +2,14 @@
 
 ## 1.Get Clicks
 
-###Method:GET
+### Method:GET
 
-###API endpoint:
+### API endpoint:
 
 https://website.com/wp-json/myshopkit/v1/insights/clicks
 
-#####parameters
+##### parameters
+
 <table>
 <tr>
 <th>Param</th>
@@ -50,7 +51,7 @@ thisMonth | string | số clicks của popup trong tháng này
 lastWeek | string | số clicks của popup tuần trước
 lastMonth | string | số clicks của popup Tháng Trước
 toDay | string | số clicks của popup trong ngày
-yesterday | string | số clicks của popup ngày hôm qua 
+yesterday | string | số clicks của popup ngày hôm qua
 customer | string | Xem Bảng Dưới
 
 Tham Số của customer
@@ -66,32 +67,38 @@ export interface clicks {
     /** messege là tin nhắn trả lại trên sever*/
     message: string
 }
+
 export interface Data {
+    /** title */
+    title: string
     /** summary là tổng số lượng clicks dựa theo filter*/
     summary: number
     /** messege là tin nhắn trả lại trên sever*/
-    timeline: Item[]
+    timeline: Timeline[]
 }
-export interface Item{
+
+export interface Timeline {
     /**
      * id ngẫu nhiên và duy nhất
      */
-    id:string
+    id: string
     /** summary là số lượng clicks dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
-    summary:number
+    summary: number
     /** label là tên của filter*/
-    label:string
+    label: string
 }
 ````
+
 ## 2.Create Click
 
-###Method:POST
+### Method:POST
 
-###API endpoint:
+### API endpoint:
 
 https://website.com/wp-json/myshopkit/v1/insights/clicks
 
-#####parameters
+##### parameters
+
 <table>
 <tr>
 <th>Param</th>
@@ -125,20 +132,23 @@ export interface Popup {
     /** messege là tin nhắn trả lại trên sever*/
     message: string
 }
+
 export interface Data {
     /** id là id của clicks*/
     id: string
 }
 ````
+
 ## 3.Update Click
 
-###Method:PUT
+### Method:PUT
 
-###API endpoint:
+### API endpoint:
 
 https://website.com/wp-json/myshopkit/v1/insights/clicks
 
-#####parameters
+##### parameters
+
 <table>
 <tr>
 <th>Param</th>
@@ -172,20 +182,23 @@ export interface Clicks {
     /** messege là tin nhắn trả lại trên sever*/
     message: string
 }
+
 export interface Data {
     /** id là id của clicks*/
     id: string
 }
 ````
+
 ## 4.Delete Click
 
-###Method:DELETE
+### Method:DELETE
 
-###API endpoint:
+### API endpoint:
 
 https://website.com/wp-json/myshopkit/v1/insights/clicks
 
-#####parameters
+##### parameters
+
 <table>
 <tr>
 <th>Param</th>
@@ -219,6 +232,7 @@ export interface Clicks {
     /** messege là tin nhắn trả lại trên sever*/
     message: string
 }
+
 export interface Data {
     /** id là id của clicks*/
     id: string
