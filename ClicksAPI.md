@@ -6,7 +6,7 @@
 
 ### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/insights/clicks
+https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
 
 ##### parameters
 
@@ -50,9 +50,9 @@ thisWeek | string | số clicks của popup trong tuần này
 thisMonth | string | số clicks của popup trong tháng này
 lastWeek | string | số clicks của popup tuần trước
 lastMonth | string | số clicks của popup Tháng Trước
-today | string | số clicks của popup trong ngày
+toDay | string | số clicks của popup trong ngày
 yesterday | string | số clicks của popup ngày hôm qua
-custom | string | Xem Bảng Dưới
+customer | string | Xem Bảng Dưới
 
 Tham Số của customer
 
@@ -95,7 +95,7 @@ export interface Timeline {
 
 ### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/insights/clicks
+https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
 
 ##### parameters
 
@@ -145,7 +145,7 @@ export interface Data {
 
 ### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/insights/clicks
+https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
 
 ##### parameters
 
@@ -195,7 +195,7 @@ export interface Data {
 
 ### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/insights/clicks
+https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
 
 ##### parameters
 
