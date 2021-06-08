@@ -20,7 +20,7 @@ https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
 <tr>
 <th>?filter</th>
 <th>string</th>
-<th>nếu không bắn lên hoặc rỗng thì lấy thisDay</th>
+<th>nếu không bắn lên hoặc rỗng thì lấy today</th>
 <th>Xem Bên Dưới</th>
 </tr>
 <tr>
@@ -35,12 +35,6 @@ https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
 <th></th>
 <th>Mã Token Do Shopify Cấp</th>
 </tr>
-<tr>
-<th>postID</th>
-<th>string</th>
-<th></th>
-<th>là id của popup</th>
-</tr>
 </table>
 Tham Số của filter
 
@@ -50,9 +44,9 @@ thisWeek | string | số clicks của popup trong tuần này
 thisMonth | string | số clicks của popup trong tháng này
 lastWeek | string | số clicks của popup tuần trước
 lastMonth | string | số clicks của popup Tháng Trước
-toDay | string | số clicks của popup trong ngày
+today | string | số clicks của popup trong ngày
 yesterday | string | số clicks của popup ngày hôm qua
-customer | string | Xem Bảng Dưới
+custom | string | Xem Bảng Dưới
 
 Tham Số của customer
 
@@ -69,12 +63,12 @@ export interface clicks {
 }
 
 export interface Data {
-    /** title */
+    /** title là clicks*/
     title: string
     /** summary là tổng số lượng clicks dựa theo filter*/
     summary: number
-    /** messege là tin nhắn trả lại trên sever*/
-    timeline: Timeline[]
+    /** timeline dữ liệu trả về của các filter:thisWeek,lastWeek,thisMonth,lastMonth,custom còn lại thì là rỗng*/
+    timeline?: Timeline[]
 }
 
 export interface Timeline {
@@ -84,8 +78,9 @@ export interface Timeline {
     id: string
     /** summary là số lượng clicks dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
     summary: number
-    /** label là tên của filter*/
-    label: string
+    /** value là giá trị timpstamp của giá trị đầu tiên khi filter ví dụ khi filter là thisWeek thì trong timeline 
+     value của phần tử đầu tiên là ngày đầu tiên của tuần */
+    value: string
 }
 ````
 
