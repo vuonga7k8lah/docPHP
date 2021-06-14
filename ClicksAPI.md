@@ -2,13 +2,14 @@
 
 ## 1.Get Clicks
 
-###Method:GET
+### Method:GET
 
-###API endpoint:
+### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/insights/clicks
+https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
 
-#####parameters
+##### parameters
+
 <table>
 <tr>
 <th>Param</th>
@@ -19,7 +20,7 @@ https://website.com/wp-json/myshopkit/v1/insights/clicks
 <tr>
 <th>?filter</th>
 <th>string</th>
-<th>nếu không bắn lên hoặc rỗng thì lấy thisDay</th>
+<th>nếu không bắn lên hoặc rỗng thì lấy today</th>
 <th>Xem Bên Dưới</th>
 </tr>
 <tr>
@@ -34,12 +35,6 @@ https://website.com/wp-json/myshopkit/v1/insights/clicks
 <th></th>
 <th>Mã Token Do Shopify Cấp</th>
 </tr>
-<tr>
-<th>postID</th>
-<th>string</th>
-<th></th>
-<th>là id của popup</th>
-</tr>
 </table>
 Tham Số của filter
 
@@ -49,16 +44,16 @@ thisWeek | string | số clicks của popup trong tuần này
 thisMonth | string | số clicks của popup trong tháng này
 lastWeek | string | số clicks của popup tuần trước
 lastMonth | string | số clicks của popup Tháng Trước
-customerDays | string | Xem Bảng Dưới
+today | string | số clicks của popup trong ngày
+yesterday | string | số clicks của popup ngày hôm qua
+custom | string | Xem Bảng Dưới
 
-Tham Số của customerDays
+Tham Số của customer
 
 param | type | description
 --- | --- | ---
-beginDays | string |ngày bắt đầu trong khoảng tìm kiếm
-endDays | string |ngày kết thúc trong khoảng tìm kiếm
-
-
+start | string |ngày bắt đầu trong khoảng tìm kiếm
+end | string |ngày kết thúc trong khoảng tìm kiếm
 
 ````ts
 export interface clicks {
@@ -66,28 +61,39 @@ export interface clicks {
     /** messege là tin nhắn trả lại trên sever*/
     message: string
 }
+
 export interface Data {
-    /** statistic là tổng số lượng clicks dựa theo filter*/
-    statistic: number
-    /** messege là tin nhắn trả lại trên sever*/
-    comparation: Item[]
+    /** title là clicks*/
+    title: string
+    /** summary là tổng số lượng clicks dựa theo filter*/
+    summary: number
+    /** timeline dữ liệu trả về của các filter:thisWeek,lastWeek,thisMonth,lastMonth,custom còn lại thì là rỗng*/
+    timeline?: Timeline[]
 }
-export interface Item{
-    /** statistic là số lượng clicks dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
-    statistic:number
-    /** desc là tên của filter*/
-    desc:string
+
+export interface Timeline {
+    /**
+     * id ngẫu nhiên và duy nhất
+     */
+    id: string
+    /** summary là số lượng clicks dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
+    summary: number
+    /** value là giá trị timpstamp của giá trị đầu tiên khi filter ví dụ khi filter là thisWeek thì trong timeline 
+     value của phần tử đầu tiên là ngày đầu tiên của tuần */
+    value: string
 }
 ````
+
 ## 2.Create Click
 
-###Method:POST
+### Method:POST
 
-###API endpoint:
+### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/insights/clicks
+https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
 
-#####parameters
+##### parameters
+
 <table>
 <tr>
 <th>Param</th>
@@ -121,20 +127,23 @@ export interface Popup {
     /** messege là tin nhắn trả lại trên sever*/
     message: string
 }
+
 export interface Data {
     /** id là id của clicks*/
     id: string
 }
 ````
+
 ## 3.Update Click
 
-###Method:PUT
+### Method:PUT
 
-###API endpoint:
+### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/insights/clicks
+https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
 
-#####parameters
+##### parameters
+
 <table>
 <tr>
 <th>Param</th>
@@ -168,20 +177,23 @@ export interface Clicks {
     /** messege là tin nhắn trả lại trên sever*/
     message: string
 }
+
 export interface Data {
     /** id là id của clicks*/
     id: string
 }
 ````
+
 ## 4.Delete Click
 
-###Method:DELETE
+### Method:DELETE
 
-###API endpoint:
+### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/insights/clicks
+https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
 
-#####parameters
+##### parameters
+
 <table>
 <tr>
 <th>Param</th>
@@ -215,6 +227,7 @@ export interface Clicks {
     /** messege là tin nhắn trả lại trên sever*/
     message: string
 }
+
 export interface Data {
     /** id là id của clicks*/
     id: string
