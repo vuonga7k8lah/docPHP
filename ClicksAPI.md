@@ -23,17 +23,78 @@ https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
 <th>nếu không bắn lên hoặc rỗng thì lấy today</th>
 <th>Xem Bên Dưới</th>
 </tr>
+</table>
+Tham Số của filter
+
+param | type | description
+--- | --- | ---
+thisWeek | string | số clicks của popup trong tuần này
+thisMonth | string | số clicks của popup trong tháng này
+lastWeek | string | số clicks của popup tuần trước
+lastMonth | string | số clicks của popup Tháng Trước
+today | string | số clicks của popup trong ngày
+yesterday | string | số clicks của popup ngày hôm qua
+custom | string | Xem Bảng Dưới
+
+Tham Số của customer (formatDate (Y-m-d))
+
+param | type | description
+--- | --- | ---
+from | string |ngày bắt đầu trong khoảng tìm kiếm
+to | string |ngày kết thúc trong khoảng tìm kiếm
+
+````ts
+export interface Clicks {
+    data: Data
+    /** messege là tin nhắn trả lại trên sever*/
+    message: string
+}
+
+export interface Data {
+    /** type phân biệt với các api khác */
+    type: 'click'
+    /** summary là tổng số lượng clicks dựa theo filter*/
+    summary: number
+    /** messege là tin nhắn trả lại trên sever*/
+    timeline: Timeline[]
+}
+
+export interface Timeline {
+    /**
+     * id ngẫu nhiên và duy nhất
+     */
+    id: string
+    /** summary là số lượng clicks dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
+    summary: number
+    /** from là ngày đầu tiên của filter*/
+    from: string
+    /** to là ngày cuối của filter*/
+    to: string
+}
+````
+
+## 2.Get Click With PopupID
+
+### Method:GET
+
+### API endpoint:
+
+https://website.com/wp-json/myshopkit/v1/insights/popups/clicks/:id
+
+##### parameters
+
+<table>
 <tr>
-<th>shopName</th>
-<th>string</th>
-<th>Tên Shop</th>
-<th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
+<th>Param</th>
+<th>Type</th>
+<th>Data Default</th>
+<th>Description</th>
 </tr>
 <tr>
-<th>accessToken</th>
+<th>?filter</th>
 <th>string</th>
-<th></th>
-<th>Mã Token Do Shopify Cấp</th>
+<th>nếu không bắn lên hoặc rỗng thì lấy today</th>
+<th>Xem Bên Dưới</th>
 </tr>
 </table>
 Tham Số của filter
@@ -48,29 +109,14 @@ today | string | số clicks của popup trong ngày
 yesterday | string | số clicks của popup ngày hôm qua
 custom | string | Xem Bảng Dưới
 
-Tham Số của customer
+Tham Số của customer (formatDate (Y-m-d))
 
 param | type | description
 --- | --- | ---
-start | string |ngày bắt đầu trong khoảng tìm kiếm
-end | string |ngày kết thúc trong khoảng tìm kiếm
+from | string |ngày bắt đầu trong khoảng tìm kiếm
+to | string |ngày kết thúc trong khoảng tìm kiếm
 
 ````ts
-export interface clicks {
-    data: Data
-    /** messege là tin nhắn trả lại trên sever*/
-    message: string
-}
-
-export interface Data {
-    /** title là clicks*/
-    title: string
-    /** summary là tổng số lượng clicks dựa theo filter*/
-    summary: number
-    /** timeline dữ liệu trả về của các filter:thisWeek,lastWeek,thisMonth,lastMonth,custom còn lại thì là rỗng*/
-    timeline?: Timeline[]
-}
-
 export interface Timeline {
     /**
      * id ngẫu nhiên và duy nhất
@@ -78,59 +124,25 @@ export interface Timeline {
     id: string
     /** summary là số lượng clicks dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
     summary: number
-    /** value là giá trị timpstamp của giá trị đầu tiên khi filter ví dụ khi filter là thisWeek thì trong timeline 
-     value của phần tử đầu tiên là ngày đầu tiên của tuần */
-    value: string
+    /** from là ngày đầu tiên của filter. Tra lai timestamp*/
+    from: string
+    /** to là ngày cuối của filter. Tra lai timestamp*/
+    to: string
 }
-````
 
-## 2.Create Click
-
-### Method:POST
-
-### API endpoint:
-
-https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
-
-##### parameters
-
-<table>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Data Default</th>
-<th>Description</th>
-</tr>
-<tr>
-<th>shopName</th>
-<th>string</th>
-<th>Tên Shop</th>
-<th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
-</tr>
-<tr>
-<th>accessToken</th>
-<th>string</th>
-<th></th>
-<th>Mã Token Do Shopify Cấp</th>
-</tr>
-<tr>
-<th>postID</th>
-<th>string</th>
-<th></th>
-<th>là id của popup</th>
-</tr>
-</table>
-
-````ts
-export interface Popup {
+export interface clicks {
     data: Data
     /** messege là tin nhắn trả lại trên sever*/
     message: string
 }
 
 export interface Data {
-    /** id là id của clicks*/
-    id: string
+    /** type phân biệt với các api khác */
+    type: 'click'
+    /** summary là tổng số lượng clicks dựa theo filter*/
+    summary: number
+    /** messege là tin nhắn trả lại trên sever*/
+    timeline: Timeline[]
 }
 ````
 
@@ -140,7 +152,7 @@ export interface Data {
 
 ### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
+https://website.com/wp-json/myshopkit/v1/insights/popups/clicks/:id
 
 ##### parameters
 
@@ -151,24 +163,6 @@ https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
 <th>Data Default</th>
 <th>Description</th>
 </tr>
-<tr>
-<th>shopName</th>
-<th>string</th>
-<th>Tên Shop</th>
-<th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
-</tr>
-<tr>
-<th>accessToken</th>
-<th>string</th>
-<th></th>
-<th>Mã Token Do Shopify Cấp</th>
-</tr>
-<tr>
-<th>postID</th>
-<th>string</th>
-<th></th>
-<th>là id của popup</th>
-</tr>
 </table>
 
 ````ts
@@ -176,56 +170,8 @@ export interface Clicks {
     data: Data
     /** messege là tin nhắn trả lại trên sever*/
     message: string
-}
-
-export interface Data {
-    /** id là id của clicks*/
-    id: string
-}
-````
-
-## 4.Delete Click
-
-### Method:DELETE
-
-### API endpoint:
-
-https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
-
-##### parameters
-
-<table>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Data Default</th>
-<th>Description</th>
-</tr>
-<tr>
-<th>shopName</th>
-<th>string</th>
-<th>Tên Shop</th>
-<th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
-</tr>
-<tr>
-<th>accessToken</th>
-<th>string</th>
-<th></th>
-<th>Mã Token Do Shopify Cấp</th>
-</tr>
-<tr>
-<th>postID</th>
-<th>string</th>
-<th></th>
-<th>là id của popup</th>
-</tr>
-</table>
-
-````ts
-export interface Clicks {
-    data: Data
-    /** messege là tin nhắn trả lại trên sever*/
-    message: string
+    /** status là trạng thái của clicks sau khi trả về*/
+    status: 'success' | 'error'
 }
 
 export interface Data {
