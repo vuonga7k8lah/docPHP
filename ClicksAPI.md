@@ -66,9 +66,9 @@ export interface Timeline {
     id: string
     /** summary là số lượng clicks dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
     summary: number
-    /** from là ngày đầu tiên của filter*/
+    /** from là ngày đầu tiên của filter. Tra lai timestamp*/
     from: string
-    /** to là ngày cuối của filter*/
+    /** to là ngày cuối của filter. Tra lai timestamp*/
     to: string
 }
 ````
