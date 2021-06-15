@@ -1,4 +1,4 @@
-# Clicks API
+# Views API
 
 ## 1.Get Views
 
@@ -28,12 +28,12 @@ Tham Số của filter
 
 param | type | description
 --- | --- | ---
-thisWeek | string | số clicks của popup trong tuần này
-thisMonth | string | số clicks của popup trong tháng này
-lastWeek | string | số clicks của popup tuần trước
-lastMonth | string | số clicks của popup Tháng Trước
-today | string | số clicks của popup trong ngày
-yesterday | string | số clicks của popup ngày hôm qua
+thisWeek | string | số views của popup trong tuần này
+thisMonth | string | số views của popup trong tháng này
+lastWeek | string | số views của popup tuần trước
+lastMonth | string | số views của popup Tháng Trước
+today | string | số views của popup trong ngày
+yesterday | string | số views của popup ngày hôm qua
 custom | string | Xem Bảng Dưới
 
 Tham Số của customer (formatDate (Y-m-d))
@@ -60,16 +60,12 @@ export interface Data {
 }
 
 export interface Timeline {
-    /**
-     * id ngẫu nhiên và duy nhất
-     */
-    id: string
-    /** summary là số lượng views dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
+    /** summary là số lượng views dựa theo filter (ví dụ là tổng số views cuả 1 tháng trong filter 4 tháng trước)*/
     summary: number
     /** from là ngày đầu tiên của filter. Tra lai timestamp*/
-    from: timestamp
+    from: srting
     /** to là ngày cuối của filter. Tra lai timestamp*/
-    to: timestamp
+    to: srting
 }
 ````
 
@@ -101,12 +97,12 @@ Tham Số của filter
 
 param | type | description
 --- | --- | ---
-thisWeek | string | số clicks của popup trong tuần này
-thisMonth | string | số clicks của popup trong tháng này
-lastWeek | string | số clicks của popup tuần trước
-lastMonth | string | số clicks của popup Tháng Trước
-today | string | số clicks của popup trong ngày
-yesterday | string | số clicks của popup ngày hôm qua
+thisWeek | string | số views của popup trong tuần này
+thisMonth | string | số views của popup trong tháng này
+lastWeek | string | số views của popup tuần trước
+lastMonth | string | số views của popup Tháng Trước
+today | string | số views của popup trong ngày
+yesterday | string | số views của popup ngày hôm qua
 custom | string | Xem Bảng Dưới
 
 Tham Số của customer (formatDate (Y-m-d))
@@ -118,16 +114,12 @@ to | string |ngày kết thúc trong khoảng tìm kiếm
 
 ````ts
 export interface Timeline {
-    /**
-     * id ngẫu nhiên và duy nhất
-     */
-    id: string
-    /** summary là số lượng views dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
+    /** summary là số lượng views dựa theo filter (ví dụ là tổng số views cuả 1 tháng trong filter 4 tháng trước)*/
     summary: number
     /** from là ngày đầu tiên của filter. Tra lai timestamp*/
-    from: timestamp
+    from: srting
     /** to là ngày cuối của filter. Tra lai timestamp*/
-    to: timestamp
+    to: srting
 }
 
 export interface View {
@@ -179,7 +171,7 @@ export interface Data {
     id: string
     /** type phân biệt với các api khác */
     type: 'view'
-    /** summary là tổng số lượng clicks dựa theo filter*/
+    /** summary là tổng số lượng viewed của popup trong ngày hôm nay*/
     summary: number
     /** timeline là tin nhắn trả lại trên sever*/
     timeline: []

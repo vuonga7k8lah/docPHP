@@ -60,16 +60,12 @@ export interface Data {
 }
 
 export interface Timeline {
-    /**
-     * id ngẫu nhiên và duy nhất
-     */
-    id: string
     /** summary là số lượng clicks dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
     summary: number
     /** from là ngày đầu tiên của filter. Tra lai timestamp*/
-    from: timestamp
+    from: srting
     /** to là ngày cuối của filter. Tra lai timestamp*/
-    to: timestamp
+    to: srting
 }
 ````
 
@@ -118,16 +114,12 @@ to | string |ngày kết thúc trong khoảng tìm kiếm
 
 ````ts
 export interface Timeline {
-    /**
-     * id ngẫu nhiên và duy nhất
-     */
-    id: string
     /** summary là số lượng clicks dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
     summary: number
     /** from là ngày đầu tiên của filter. Tra lai timestamp*/
-    from: timestamp
+    from: srting
     /** to là ngày cuối của filter. Tra lai timestamp*/
-    to: timestamp
+    to: srting
 }
 
 export interface clicks {
@@ -179,7 +171,7 @@ export interface Data {
     id: string
     /** type phân biệt với các api khác */
     type: 'click'
-    /** summary là tổng số lượng clicks dựa theo filter*/
+    /** summary là tổng số lượng clicks của popup trong ngày hôm nay*/
     summary: number
     /** timeline là tin nhắn trả lại trên sever*/
     timeline: []
