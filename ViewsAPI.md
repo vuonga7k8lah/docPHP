@@ -1,12 +1,12 @@
 # Clicks API
 
-## 1.Get Clicks
+## 1.Get Views
 
 ### Method:GET
 
 ### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
+https://website.com/wp-json/myshopkit/v1/insights/popups/views
 
 ##### parameters
 
@@ -44,7 +44,7 @@ from | string |ngày bắt đầu trong khoảng tìm kiếm
 to | string |ngày kết thúc trong khoảng tìm kiếm
 
 ````ts
-export interface Clicks {
+export interface Views {
     data: Data
     /** messege là tin nhắn trả lại trên sever*/
     message: string
@@ -52,8 +52,8 @@ export interface Clicks {
 
 export interface Data {
     /** type phân biệt với các api khác */
-    type: 'click'
-    /** summary là tổng số lượng clicks dựa theo filter*/
+    type: 'view'
+    /** summary là tổng số lượng views dựa theo filter*/
     summary: number
     /** messege là tin nhắn trả lại trên sever*/
     timeline: Timeline[]
@@ -64,7 +64,7 @@ export interface Timeline {
      * id ngẫu nhiên và duy nhất
      */
     id: string
-    /** summary là số lượng clicks dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
+    /** summary là số lượng views dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
     summary: number
     /** from là ngày đầu tiên của filter*/
     from: string
@@ -73,13 +73,13 @@ export interface Timeline {
 }
 ````
 
-## 2.Get Click With PopupID
+## 2.Get Views With PopupID
 
 ### Method:GET
 
 ### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/insights/popups/clicks/:id
+https://website.com/wp-json/myshopkit/v1/insights/popups/views/:id
 
 ##### parameters
 
@@ -122,7 +122,7 @@ export interface Timeline {
      * id ngẫu nhiên và duy nhất
      */
     id: string
-    /** summary là số lượng clicks dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
+    /** summary là số lượng views dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
     summary: number
     /** from là ngày đầu tiên của filter. Tra lai timestamp*/
     from: string
@@ -130,7 +130,7 @@ export interface Timeline {
     to: string
 }
 
-export interface clicks {
+export interface View {
     data: Data
     /** messege là tin nhắn trả lại trên sever*/
     message: string
@@ -138,21 +138,21 @@ export interface clicks {
 
 export interface Data {
     /** type phân biệt với các api khác */
-    type: 'click'
-    /** summary là tổng số lượng clicks dựa theo filter*/
+    type: 'view'
+    /** summary là tổng số lượng views dựa theo filter*/
     summary: number
     /** messege là tin nhắn trả lại trên sever*/
     timeline: Timeline[]
 }
 ````
 
-## 3.Update Click
+## 3.Update View
 
 ### Method:PUT
 
 ### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/insights/popups/clicks/:id
+https://website.com/wp-json/myshopkit/v1/insights/popups/views/:id
 
 ##### parameters
 
@@ -166,19 +166,19 @@ https://website.com/wp-json/myshopkit/v1/insights/popups/clicks/:id
 </table>
 
 ````ts
-export interface Clicks {
+export interface View {
     data: Data
     /** messege là tin nhắn trả lại trên sever*/
     message: string
-    /** status là trạng thái của clicks sau khi trả về*/
+    /** status là trạng thái của views sau khi trả về*/
     status: 'success' | 'error'
 }
 
 export interface Data {
-    /** id là id của clicks*/
+    /** id là id của views*/
     id: string
     /** type phân biệt với các api khác */
-    type: 'click'
+    type: 'view'
     /** summary là tổng số lượng clicks dựa theo filter*/
     summary: number
     /** timeline là tin nhắn trả lại trên sever*/
