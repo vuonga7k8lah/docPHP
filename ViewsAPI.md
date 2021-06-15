@@ -66,10 +66,10 @@ export interface Timeline {
     id: string
     /** summary là số lượng views dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
     summary: number
-    /** from là ngày đầu tiên của filter*/
-    from: string
-    /** to là ngày cuối của filter*/
-    to: string
+    /** from là ngày đầu tiên của filter. Tra lai timestamp*/
+    from: timestamp
+    /** to là ngày cuối của filter. Tra lai timestamp*/
+    to: timestamp
 }
 ````
 
@@ -125,9 +125,9 @@ export interface Timeline {
     /** summary là số lượng views dựa theo filter (ví dụ là tổng số clicks cuả 1 tháng trong filter 4 tháng trước)*/
     summary: number
     /** from là ngày đầu tiên của filter. Tra lai timestamp*/
-    from: string
+    from: timestamp
     /** to là ngày cuối của filter. Tra lai timestamp*/
-    to: string
+    to: timestamp
 }
 
 export interface View {
