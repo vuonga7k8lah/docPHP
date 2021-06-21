@@ -23,6 +23,12 @@ https://website.com/wp-json/myshopkit/v1/insights/popups/subscribers
 <th>nếu không bắn lên hoặc rỗng thì lấy today</th>
 <th>Xem Bên Dưới</th>
 </tr>
+<tr>
+<th>shopName</th>
+<th>string</th>
+<th>Tên Shop</th>
+<th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
+</tr>
 </table>
 Tham Số của filter
 
@@ -75,14 +81,15 @@ export interface Timeline {
 
 ### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/popups/subscribers
+https://website.com/wp-json/myshopkit/v1/subscribers
 
 ##### parameters
 
 param | Type | Data Default |Description
 --- | --- | --- | -----|
-?search | string | - | Tìm Kiếm
-?limited | number | 30 | Giới Hạn Bao Nhiêu email 1 Trang
+?limit | number | 0 | Giới Hạn Bao Nhiêu email 1 Trang
+?page | number | 1 | số Trang
+shopName | string | Tên Shop |Bắn Tên Shopify Đã Đăng Ký Lên
 
 ````ts
 export interface Data {
@@ -104,28 +111,61 @@ export interface Subcribers {
     status: 'error' | 'success'
 }
 ````
+## 3.Get Subscribers With Popup
 
-## 3.DELETE Subscriber
-
-### Method:DELETE
+### Method:GET
 
 ### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/popups/subscribers/:id
+https://website.com/wp-json/myshopkit/v1/subscribers/:id
 
 ##### parameters
 
-<table>
-<tr>
-<th>Param</th>
-<th>Type</th>
-<th>Data Default</th>
-<th>Description</th>
-</tr>
-</table>
+param | Type | Data Default |Description
+--- | --- | --- | -----|
+?limit | number | 0 | Giới Hạn Bao Nhiêu email 1 Trang
+?page | number | 1 | số Trang
+shopName | string | Tên Shop |Bắn Tên Shopify Đã Đăng Ký Lên
+
 
 ````ts
-export interface View {
+export interface Data {
+    items: Items[];
+    /** maxPages là số paged*/
+    maxPages: number
+}
+export interface Items {
+    /** email là tên email*/
+    email: string;
+    /** createdDate là ngày tạo,Trả về dạng timestarm*/
+    createdDate: string
+}
+export interface Subcribers {
+    data: Data
+    /** messege là tin nhắn code trả lại*/
+    message: string
+    /** status trang thái code sau khi xử lý API*/
+    status: 'error' | 'success'
+}
+````
+## 4.Create Subscriber
+
+### Method:POST
+
+### API endpoint:
+
+https://website.com/wp-json/myshopkit/v1/subscribers:id
+
+##### parameters
+
+param | Type | Data Default |Description
+--- | --- | --- | -----|
+email | string | - | email mà khách subscriber
+?shopName | string | Tên Shop |Bắn Tên Shopify Đã Đăng Ký Lên
+
+
+````ts
+export interface Subscriber {
     data: Data
     /** messege là tin nhắn trả lại trên sever*/
     message: string
@@ -137,4 +177,66 @@ export interface Data {
     /** id là id của subscribers*/
     id: string
 }
+````
+## 5.DELETE Subscriber
+
+### Method:DELETE
+
+### API endpoint:
+
+https://website.com/wp-json/myshopkit/v1/subscribers/:id
+
+##### parameters
+
+param | Type | Data Default |Description
+--- | --- | --- | -----|
+email | string | - | email mà khách đã subscriber
+shopName | string | Tên Shop |Bắn Tên Shopify Đã Đăng Ký Lên
+
+
+````ts
+export interface Subscriber {
+    data: Data
+    /** messege là tin nhắn trả lại trên sever*/
+    message: string
+    /** status là trạng thái của subscribers sau khi trả về*/
+    status: 'success' | 'error'
+}
+
+export interface Data {
+    /** id là id của subscribers*/
+    id: string
+}
+````
+## 6.Export Subscribers
+
+### Method:GET
+
+### API endpoint:
+
+https://website.com/wp-json/myshopkit/v1/subscribers/export
+
+##### parameters
+
+param | Type | Data Default |Description
+--- | --- | --- | -----|
+?limit | number | 0 | Giới Hạn Bao Nhiêu email 1 Trang
+?page | number | 1 | số Trang
+?filter | string | custom | nếu k có thì lấy hết
+?from | string | - | ngày bắt đầu Lọc (Y-m-d)
+?to | sring | - | ngày Kết Thúc Lọc (Y-m-d)
+format | string | (d-m-Y) | format lại kiểu thời gian đã tạo subscriber
+shopName | string | Tên Shop |Bắn Tên Shopify Đã Đăng Ký Lên
+
+
+Tham Số của format
+
+param | type | description
+--- | --- | ---
+Y-M-d | string | dạng 2021-Jun-16
+d-M-Y | string | dạng 16-Jun-2021
+d-m-y | string | dạng 16-06-2021
+
+````ts
+
 ````

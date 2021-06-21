@@ -23,6 +23,12 @@ https://website.com/wp-json/myshopkit/v1/insights/popups/views
 <th>nếu không bắn lên hoặc rỗng thì lấy today</th>
 <th>Xem Bên Dưới</th>
 </tr>
+<tr>
+<th>shopName</th>
+<th>string</th>
+<th>Tên Shop</th>
+<th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
+</tr>
 </table>
 Tham Số của filter
 
@@ -92,6 +98,12 @@ https://website.com/wp-json/myshopkit/v1/insights/popups/views/:id
 <th>nếu không bắn lên hoặc rỗng thì lấy today</th>
 <th>Xem Bên Dưới</th>
 </tr>
+<tr>
+<th>shopName</th>
+<th>string</th>
+<th>Tên Shop</th>
+<th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
+</tr>
 </table>
 Tham Số của filter
 
@@ -154,6 +166,12 @@ https://website.com/wp-json/myshopkit/v1/insights/popups/views/:id
 <th>Type</th>
 <th>Data Default</th>
 <th>Description</th>
+</tr>
+<tr>
+<th>shopName</th>
+<th>string</th>
+<th>Tên Shop</th>
+<th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
 </tr>
 </table>
 
