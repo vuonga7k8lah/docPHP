@@ -68,12 +68,6 @@ https://website.com/wp-json/myshopkit/v1/popups/:id
 <th>Tên Shop</th>
 <th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
 </tr>
-<tr>
-<th>accessToken</th>
-<th>string</th>
-<th></th>
-<th>Mã Token Do Shopify Cấp</th>
-</tr>
 </table>
 Tham Số của Pluck
 
@@ -140,22 +134,16 @@ https://website.com/wp-json/myshopkit/v1/popups/:id/:param
 <th>Description</th>
 </tr>
 <tr>
-<th>param</th>
-<th>string</th>
-<th></th>
-<th>Xem Bên Dưới</th>
-</tr>
-<tr>
 <th>shopName</th>
 <th>string</th>
 <th>Tên Shop</th>
 <th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
 </tr>
 <tr>
-<th>accessToken</th>
+<th>param</th>
 <th>string</th>
 <th></th>
-<th>Mã token do shopify cấp</th>
+<th>Xem Bên Dưới</th>
 </tr>
 </table>
 Tham Số của Pluck
@@ -221,8 +209,14 @@ https://website.com/wp-json/myshopkit/v1/popups
 <th>Description</th>
 </tr>
 <tr>
-<th>config</th>
+<th>shopName</th>
 <th>string</th>
+<th>Tên Shop</th>
+<th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
+</tr>
+<tr>
+<th>config</th>
+<th>json</th>
 <th></th>
 <th>Config Popup Do Font-End Bắn Lên</th>
 </tr>
@@ -231,18 +225,6 @@ https://website.com/wp-json/myshopkit/v1/popups
 <th>string</th>
 <th>Random</th>
 <th>Title Của Popup</th>
-</tr>
-<tr>
-<th>shopName</th>
-<th>string</th>
-<th>Tên Shop</th>
-<th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
-</tr>
-<tr>
-<th>accessToken</th>
-<th>string</th>
-<th></th>
-<th>Mã Token Do Shopify Cấp</th>
 </tr>
 </table>
 
@@ -283,12 +265,6 @@ https://website.com/wp-json/myshopkit/v1/popups
 <th>string</th>
 <th>Tên Shop</th>
 <th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
-</tr>
-<tr>
-<th>accessToken</th>
-<th>string</th>
-<th></th>
-<th>Mã token do shopify cấp</th>
 </tr>
 <tr>
 <th>?search</th>
@@ -380,12 +356,6 @@ https://website.com/wp-json/myshopkit/v1/popups/:id
 <th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
 </tr>
 <tr>
-<th>accessToken</th>
-<th>string</th>
-<th></th>
-<th>Mã token do shopify cấp</th>
-</tr>
-<tr>
 <th>?title</th>
 <th>string</th>
 <th>Random</th>
@@ -399,7 +369,7 @@ https://website.com/wp-json/myshopkit/v1/popups/:id
 </tr>
 <tr>
 <th>?config</th>
-<th>string</th>
+<th>json</th>
 <th>-</th>
 <th>config popup do font-end bắn lên</th>
 </tr>
@@ -437,12 +407,6 @@ https://website.com/wp-json/myshopkit/v1/popups/id
 <th>Tên Shop</th>
 <th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
 </tr>
-<tr>
-<th>accessToken</th>
-<th>string</th>
-<th></th>
-<th>Mã token do shopify cấp</th>
-</tr>
 </table>
 
 ````ts
@@ -476,12 +440,6 @@ https://website.com/wp-json/myshopkit/v1/popups
 <th>string</th>
 <th>Tên Shop</th>
 <th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
-</tr>
-<tr>
-<th>accessToken</th>
-<th>string</th>
-<th></th>
-<th>Mã token do shopify cấp</th>
 </tr>
 <tr>
 <th>ids</th>
