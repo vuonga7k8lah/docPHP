@@ -80,7 +80,7 @@ config | string | các config của font-end bắn lên
 views | string | views của popup
 clicks | string | clicks của popup
 subscribers | string | subscribers của popup
-rate | string | rate của popup
+conversion | string | conversion của popup
 goal | string | goal của popup
 
 ````ts
@@ -104,15 +104,16 @@ export interface Data {
     /** status Là trạng thái của popup*/
     status: (enable | disable)
     /** views Là số lượt xem của popup*/
-    views: string,
+    views: number,
     /** clicks là số lượt clicks của popup*/
-    clicks: string,
+    clicks: number,
     /** subscribers là số lượt gmail được gửi của popup*/
-    subscribers: string
-    /** rate Là đánh giá của popup*/
-    rate: string
+    subscribers: number
+    /** conversion Là đánh giá của popup*/
+    conversion: number
     /** goal là chiến dịch của popup*/
     goal: string
+    items: []
 }
 ````
 
@@ -157,7 +158,7 @@ config | string | các config của font-end bắn lên
 views | string | views của popup
 clicks | string | clicks của popup
 subscribers | string | subscribers của popup
-rate | string | rate của popup
+conversion | string | conversion của popup
 goal | string | goal của popup
 
 ````ts
@@ -181,13 +182,13 @@ export interface Data {
     /** status Là trạng thái của popup*/
     status: (active | deactive)
     /** views Là số lượt xem của popup*/
-    views: string,
+    views: number,
     /** clicks là số lượt clicks của popup*/
-    clicks: string,
+    clicks: number,
     /** subscribers là số lượt gmail được gửi của popup*/
-    subscribers: string
-    /** rate Là đánh giá của popup*/
-    rate: string
+    subscribers: number
+    /** conversion Là đánh giá của popup*/
+    conversion: number
     /** goal là chiến dịch của popup*/
     goal: string
 }
@@ -290,7 +291,7 @@ config | string | các config của font-end bắn lên
 views | string | views của popup
 clicks | string | clicks của popup
 subscribers | string | subscribers của popup
-rate | string | rate của popup
+conversion | string | conversion của popup
 goal | string | goal của popup
 
 ````ts
@@ -322,13 +323,13 @@ export interface Data {
     /** status Là trạng thái của popup*/
     status: (enable | disable)
     /** views Là số lượt xem của popup*/
-    views: string,
+    views: number,
     /** clicks là số lượt clicks của popup*/
-    clicks: string,
+    clicks: number,
     /** subscribers là số lượt gmail được gửi của popup*/
-    subscribers: string
-    /** rate Là đánh giá của popup*/
-    rate: string
+    subscribers: number
+    /** conversion Là đánh giá của popup*/
+    conversion: number
     /** goal là chiến dịch của popup*/
     goal: string
 }
