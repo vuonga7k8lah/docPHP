@@ -114,6 +114,8 @@ export interface Data {
     /** goal là chiến dịch của popup*/
     goal: string
     items: []
+    /** các trang hiển thi popup*/
+    showToPage: string[] | []
 }
 ````
 
@@ -279,6 +281,16 @@ https://website.com/wp-json/myshopkit/v1/popups
 <th></th>
 <th>Giới Hạn Bao Nhiêu Popups 1 Trang</th>
 </tr>
+<tr>
+<th>?showToPage</th>
+<th>string</th>
+<th></th>
+<th>Popups hiển thị trên các trang nào có 7 giá trị:
+template-index, template-blog,
+template-article, template-list-collections,
+template-collection, template-product, template-page
+</th>
+</tr>
 </table>
 Tham Số của Pluck
 
@@ -293,6 +305,7 @@ clicks | string | clicks của popup
 subscribers | string | subscribers của popup
 conversion | string | conversion của popup
 goal | string | goal của popup
+showToPage | string | goal của popup
 
 ````ts
 
@@ -332,6 +345,8 @@ export interface Data {
     conversion: number
     /** goal là chiến dịch của popup*/
     goal: string
+    /** các trang hiển thi popup*/
+    showToPage: string[] | []
 }
 ````
 

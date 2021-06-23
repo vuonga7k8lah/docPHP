@@ -102,6 +102,8 @@ export interface Items {
     email: string;
     /** createdDate là ngày tạo,Trả về dạng timestarm*/
     createdDate: string
+    /** campaign là tên chiến dịch*/
+    campaign: string
 }
 export interface Subcribers {
     data: Data
@@ -139,6 +141,8 @@ export interface Items {
     email: string;
     /** createdDate là ngày tạo,Trả về dạng timestarm*/
     createdDate: string
+    /** campaign là tên chiến dịch*/
+    campaign: string
 }
 export interface Subcribers {
     data: Data
