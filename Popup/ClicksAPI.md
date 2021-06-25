@@ -6,7 +6,7 @@
 
 ### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
+https://website.com/wp-json/myshopkit/v1/insights/clicks
 
 ##### parameters
 
@@ -28,6 +28,12 @@ https://website.com/wp-json/myshopkit/v1/insights/popups/clicks
 <th>string</th>
 <th>nếu không bắn lên hoặc rỗng thì lấy today</th>
 <th>Xem Bên Dưới</th>
+</tr>
+<tr>
+<th>?postType</th>
+<th>string</th>
+<th>(popup | smartbar)</th>
+<th>Dạng post type</th>
 </tr>
 </table>
 Tham Số của filter
