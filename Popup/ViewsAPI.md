@@ -6,7 +6,7 @@
 
 ### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/insights/popups/views
+https://website.com/wp-json/myshopkit/v1/insights/views
 
 ##### parameters
 
@@ -28,6 +28,12 @@ https://website.com/wp-json/myshopkit/v1/insights/popups/views
 <th>string</th>
 <th>Tên Shop</th>
 <th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
+</tr>
+<tr>
+<th>?postType</th>
+<th>string</th>
+<th>(popup | smartbar)</th>
+<th>Dạng post type</th>
 </tr>
 </table>
 Tham Số của filter
@@ -81,7 +87,7 @@ export interface Timeline {
 
 ### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/insights/popups/views/:id
+https://website.com/wp-json/myshopkit/v1/insights/views/:id
 
 ##### parameters
 
@@ -97,6 +103,12 @@ https://website.com/wp-json/myshopkit/v1/insights/popups/views/:id
 <th>string</th>
 <th>nếu không bắn lên hoặc rỗng thì lấy today</th>
 <th>Xem Bên Dưới</th>
+</tr>
+<tr>
+<th>?postType</th>
+<th>string</th>
+<th>(popup | smartbar)</th>
+<th>Dạng post type</th>
 </tr>
 <tr>
 <th>shopName</th>
@@ -156,7 +168,7 @@ export interface Data {
 
 ### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/insights/popups/views/:id
+https://website.com/wp-json/myshopkit/v1/insights/views/:id
 
 ##### parameters
 
@@ -172,6 +184,12 @@ https://website.com/wp-json/myshopkit/v1/insights/popups/views/:id
 <th>string</th>
 <th>Tên Shop</th>
 <th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
+</tr>
+<tr>
+<th>?postType</th>
+<th>string</th>
+<th>(popup | smartbar)</th>
+<th>Dạng post type</th>
 </tr>
 </table>
 

@@ -6,7 +6,7 @@
 
 ### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/insights/popups/subscribers
+https://website.com/wp-json/myshopkit/v1/insights/subscribers
 
 ##### parameters
 
@@ -22,6 +22,12 @@ https://website.com/wp-json/myshopkit/v1/insights/popups/subscribers
 <th>string</th>
 <th>nếu không bắn lên hoặc rỗng thì lấy today</th>
 <th>Xem Bên Dưới</th>
+</tr>
+<tr>
+<th>?postType</th>
+<th>string</th>
+<th>(popup | smartbar)</th>
+<th>Dạng post type</th>
 </tr>
 <tr>
 <th>shopName</th>
