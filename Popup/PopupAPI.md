@@ -379,8 +379,8 @@ https://website.com/wp-json/myshopkit/v1/popups/:id
 </tr>
 <tr>
 <th>?status</th>
-<th>(enable||disable)</th>
-<th>enable</th>
+<th>(active||deactive)</th>
+<th>active</th>
 <th>trạng thái của popup</th>
 </tr>
 <tr>
