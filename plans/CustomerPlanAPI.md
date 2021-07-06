@@ -35,6 +35,6 @@ export interface Plan {
 
 export interface Data {
     /** plan là tên gói*/
-    myshokit: (free | silver | originalFree | gold)
+    myshopkit: (free | silver | originalFree | gold)
 }
 ````
