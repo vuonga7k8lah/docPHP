@@ -136,6 +136,7 @@ param | Type | Data Default |Description
 shopName | string | Tên Shop |Bắn Tên Shopify Đã Đăng Ký Lên
 
 
+
 ````ts
 export interface Data {
     items: Items[];
@@ -164,7 +165,7 @@ export interface Subcribers {
 
 ### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/subscribers:id
+https://website.com/wp-json/myshopkit/v1/subscribers/:id
 
 ##### parameters
 
@@ -172,6 +173,9 @@ param | Type | Data Default |Description
 --- | --- | --- | -----|
 email | string | - | email mà khách subscriber
 ?shopName | string | Tên Shop |Bắn Tên Shopify Đã Đăng Ký Lên
+postType | string | (popup | smartbar) |Dạng Product Type
+?name | string | '' |Tên Người Đã subscriber
+?gdpr | int | 1 |Đồng ý điều khoản dịch vụ
 
 
 ````ts
