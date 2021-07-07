@@ -174,7 +174,7 @@ param | Type | Data Default |Description
 email | string | - | email mà khách subscriber
 ?shopName | string | Tên Shop |Bắn Tên Shopify Đã Đăng Ký Lên
 postType | string | (popup | smartbar) |Dạng Product Type
-?name | string | '' |Tên Người Đã subscriber
+?fullName | string | '' |Tên Người Đã subscriber
 ?gdpr | int | 1 |Đồng ý điều khoản dịch vụ
 
 
