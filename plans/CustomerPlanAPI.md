@@ -63,16 +63,10 @@ https://website.com/wp-json/myshopkit/v1/me/plans/charge/url
 <th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
 </tr>
 <tr>
-<th>name</th>
+<th>nameSlug</th>
 <th>string</th>
 <th>Tên Gói plan</th>
 <th>Tên gói plan đã được config</th>
-</tr>
-<tr>
-<th>price</th>
-<th>string</th>
-<th>Giá Tiền</th>
-<th>Giá bán của gói</th>
 </tr>
 </table>
 
