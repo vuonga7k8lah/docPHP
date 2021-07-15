@@ -63,7 +63,7 @@ https://website.com/wp-json/myshopkit/v1/me/plans/charge/url
 <th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
 </tr>
 <tr>
-<th>nameSlug</th>
+<th>planSlug</th>
 <th>string</th>
 <th>Tên Gói plan</th>
 <th>Tên gói plan đã được config</th>
