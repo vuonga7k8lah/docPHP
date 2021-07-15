@@ -38,13 +38,14 @@ export interface Data {
     myshokit: (free | silver | originalFree | gold)
 }
 ````
+
 ##2.GET Confirmation URL
 
 ### Method:POST
 
 ### API endpoint:
 
-https://website.com/wp-json/myshopkit/v1/confirmations/url
+https://website.com/wp-json/myshopkit/v1/me/plans/charge/url
 
 ##### parameters
 
@@ -88,6 +89,7 @@ export interface Data {
     redirectTo: string
 }
 ````
+
 ##3.Update Plan
 
 ### Method:PUT
