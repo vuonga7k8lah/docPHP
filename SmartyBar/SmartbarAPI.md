@@ -234,6 +234,11 @@ https://website.com/wp-json/myshopkit/v1/smartbars
 <th>Random</th>
 <th>Title Của smartbar</th>
 </tr>
+<th>?status</th>
+<th>string</th>
+<th>active</th>
+<th>Trạng thái Của Popup</th>
+</tr>
 </table>
 
 ````ts
