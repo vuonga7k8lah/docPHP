@@ -237,7 +237,7 @@ https://website.com/wp-json/myshopkit/v1/smartbars
 <th>?status</th>
 <th>string</th>
 <th>active</th>
-<th>Trạng thái Của Popup</th>
+<th>Trạng thái Của smartbar</th>
 </tr>
 </table>
 
