@@ -137,14 +137,10 @@ https://website.com/wp-json/myshopkit/v1/me/plans
 
 ````ts
 export interface Plan {
-    data: Data
+    data: []
     /** messege là tin nhắn trả lại trên sever*/
     message: string
     status: (success | error)
 }
 
-export interface Data {
-    /** redirectTo là đường dẫn chuyển trang*/
-    redirectTo: string
-}
 ````
