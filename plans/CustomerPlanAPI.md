@@ -35,8 +35,16 @@ export interface Plan {
 
 export interface Data {
     /** plan là tên gói*/
-    myshokit: (free | silver | originalFree | gold)
+    plan: (free | silver | originalFree | gold),
+    extraInfo: ExtraInfo
 }
+
+export interface ExtraInfo {
+    /** plan là tên gói*/
+    plan: (free | silver | originalFree | gold),
+    extraInfo: ExtraInfo
+}
+
 ````
 
 ##2.GET Confirmation URL
@@ -108,15 +116,7 @@ https://website.com/wp-json/myshopkit/v1/me/plans
 <th>Bắn Tên Shopify Đã Đăng Ký Lên</th>
 </tr>
 <tr>
-<tr>
-<th>planSlug</th>
-<th>string</th>
-<th>Tên Plan</th>
-<th>Tên gói plan</th>
-</tr>
-<tr>
-<tr>
-<th>createdAt</th>
+<th>created_at</th>
 <th>string</th>
 <th>--</th>
 <th>ngày tạo gói</th>
@@ -132,12 +132,6 @@ https://website.com/wp-json/myshopkit/v1/me/plans
 <th>string</th>
 <th>Tên Gói plan</th>
 <th>Tên gói plan đã được config</th>
-</tr>
-<tr>
-<th>price</th>
-<th>string</th>
-<th>Giá Tiền</th>
-<th>Giá bán của gói</th>
 </tr>
 </table>
 
