@@ -229,6 +229,12 @@ https://website.com/wp-json/myshopkit/v1/popups
 <th>Random</th>
 <th>Title Của Popup</th>
 </tr>
+ <tr>
+<th>?status</th>
+<th>string</th>
+<th>active</th>
+<th>Trạng thái Của Popup</th>
+</tr>
 </table>
 
 ````ts
