@@ -258,7 +258,7 @@ export interface Data {
 
 export interface Upgrade {
   isUpgrade: boolean
-  ?message: string
+  message?: string
 }
 ````
 
@@ -428,7 +428,7 @@ export interface Data {
 
 export interface Upgrade {
   isUpgrade: boolean
-  ?message: string
+  message?: string
 }
 ````
 
