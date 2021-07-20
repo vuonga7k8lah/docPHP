@@ -243,12 +243,22 @@ https://website.com/wp-json/myshopkit/v1/smartbars
 
 ````ts
 export interface Smartbar {
-    /** id là id của smartbar vừa tạo*/
-    id: string
-    /** messege là tin nhắn trả lại trên sever*/
+  data: Data
+  /** messege là tin nhắn trả lại trên sever*/
     message: string
     /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
+}
+
+export interface Data {
+  upgrade: Upgrade
+ /** id là id của popup vừa tạo*/
+    id: string
+}
+
+export interface Upgrade {
+  isUpgrade: boolean
+  ?message: string
 }
 ````
 
@@ -403,12 +413,22 @@ https://website.com/wp-json/myshopkit/v1/smartbars/:id
 
 ````ts
 export interface Smartbar {
-    /** id là id của smartbar vừa tạo*/
-    id: string
-    /** messege là tin nhắn trả lại trên sever*/
+  data: Data
+  /** messege là tin nhắn trả lại trên sever*/
     message: string
     /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
+}
+
+export interface Data {
+  upgrade: Upgrade
+ /** id là id của popup vừa tạo*/
+    id: string
+}
+
+export interface Upgrade {
+  isUpgrade: boolean
+  ?message: string
 }
 ````
 
