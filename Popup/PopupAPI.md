@@ -239,12 +239,22 @@ https://website.com/wp-json/myshopkit/v1/popups
 
 ````ts
 export interface Popup {
-    /** id là id của popup vừa tạo*/
-    id: string
-    /** messege là tin nhắn trả lại trên sever*/
+  data: Data
+  /** messege là tin nhắn trả lại trên sever*/
     message: string
     /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
+}
+
+export interface Data {
+  upgrade: Upgrade
+ /** id là id của popup vừa tạo*/
+    id: string
+}
+
+export interface Upgrade {
+  isUpgrade: boolean
+  ?message: string
 }
 ````
 
@@ -399,12 +409,22 @@ https://website.com/wp-json/myshopkit/v1/popups/:id
 
 ````ts
 export interface Popup {
-    /** id là id của popup vừa tạo*/
-    id: string
-    /** messege là tin nhắn trả lại trên sever*/
+  data: Data
+  /** messege là tin nhắn trả lại trên sever*/
     message: string
     /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
+}
+
+export interface Data {
+  upgrade: Upgrade
+ /** id là id của popup vừa tạo*/
+    id: string
+}
+
+export interface Upgrade {
+  isUpgrade: boolean
+  ?message: string
 }
 ````
 
