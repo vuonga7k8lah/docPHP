@@ -236,6 +236,7 @@ param | Type | Data Default |Description
 --- | --- | --- | -----|
 ?limit | number | 0 | Giới Hạn Bao Nhiêu email 1 Trang
 ?page | number | 1 | số Trang
+?postID | string |  | campagin id
 ?filter | string | custom | nếu k có thì lấy hết
 ?from | string | - | ngày bắt đầu Lọc (Y-m-d)
 ?to | sring | - | ngày Kết Thúc Lọc (Y-m-d)
