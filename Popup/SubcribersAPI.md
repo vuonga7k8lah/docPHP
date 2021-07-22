@@ -200,6 +200,8 @@ export interface Data {
 
 https://website.com/wp-json/myshopkit/v1/subscribers/:id
 
+id là ID campagin
+
 ##### parameters
 
 param | Type | Data Default |Description
@@ -222,7 +224,40 @@ export interface Data {
     id: string
 }
 ````
-## 6.Export Subscribers
+## 6.Mutil DELETE Subscriber
+
+### Method:DELETE
+
+### API endpoint:
+
+https://website.com/wp-json/myshopkit/v1/subscribers
+
+
+
+##### parameters
+
+param | Type | Data Default |Description
+--- | --- | --- | -----|
+emails | string | - | email mà khách đã subscriber
+ids | string | - | list campain ID
+shopName | string | Tên Shop |Bắn Tên Shopify Đã Đăng Ký Lên
+
+
+````ts
+export interface Subscriber {
+    data: Data
+    /** messege là tin nhắn trả lại trên sever*/
+    message: string
+    /** status là trạng thái của subscribers sau khi trả về*/
+    status: 'success' | 'error'
+}
+
+export interface Data {
+    /** id là id của subscribers*/
+    id: string
+}
+````
+## 7.Export Subscribers
 
 ### Method:GET
 
@@ -240,8 +275,9 @@ param | Type | Data Default |Description
 ?filter | string | custom | nếu k có thì lấy hết
 ?from | string | - | ngày bắt đầu Lọc (Y-m-d)
 ?to | sring | - | ngày Kết Thúc Lọc (Y-m-d)
-format | string | (d-m-Y) | format lại kiểu thời gian đã tạo subscriber
+format | string | (m-d-Y) | format lại kiểu thời gian đã tạo subscriber
 shopName | string | Tên Shop |Bắn Tên Shopify Đã Đăng Ký Lên
+accessToken | string |  |token để check user
 
 
 Tham Số của format
