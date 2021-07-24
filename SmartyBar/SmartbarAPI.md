@@ -238,27 +238,33 @@ https://website.com/wp-json/myshopkit/v1/smartbars
 <th>string</th>
 <th>active</th>
 <th>Trạng thái Của smartbar</th>
-</tr>
 </table>
 
 ````ts
 export interface Smartbar {
-  data: Data
-  /** messege là tin nhắn trả lại trên sever*/
+    data: Data
+    /** messege là tin nhắn trả lại trên sever*/
     message: string
     /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
 }
 
 export interface Data {
-  upgrade: Upgrade
- /** id là id của popup vừa tạo*/
+    upgrade: Upgrade
+    duplicate: Duplicate
+    /** id là id của popup vừa tạo*/
     id: string
 }
 
 export interface Upgrade {
-  isUpgrade: boolean
-  message?: string
+    isUpgrade: boolean
+    message?: string
+}
+
+export interface Duplicate {
+    isDuplicate: boolean
+    message?: string
+    ids?: string
 }
 ````
 
@@ -413,22 +419,29 @@ https://website.com/wp-json/myshopkit/v1/smartbars/:id
 
 ````ts
 export interface Smartbar {
-  data: Data
-  /** messege là tin nhắn trả lại trên sever*/
+    data: Data
+    /** messege là tin nhắn trả lại trên sever*/
     message: string
     /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
 }
 
 export interface Data {
-  upgrade: Upgrade
- /** id là id của popup vừa tạo*/
+    upgrade: Upgrade
+    duplicate: Duplicate
+    /** id là id của popup vừa tạo*/
     id: string
 }
 
 export interface Upgrade {
-  isUpgrade: boolean
-  message?: string
+    isUpgrade: boolean
+    message?: string
+}
+
+export interface Duplicate {
+    isDuplicate: boolean
+    message?: string
+    ids?: string
 }
 ````
 
@@ -471,6 +484,7 @@ export interface Smartbar {
 ### API endpoint:
 
 https://website.com/wp-json/myshopkit/v1/smartbars
+
 ##### parameters
 
 <table>
@@ -504,3 +518,67 @@ export interface Smartbar {
     status: 'error' | 'success'
 }
 ````
+## My Publishing Campaign
+
+### Method: GET
+
+### API endpoint:
+https://website.com/vge/myshopkit/v1/me/smartbars/publishing
+
+### Params
+
+```typescript
+export interface PublishingSmartBar {
+    /** id là id của popup vừa tạo*/
+    showOnPage: 'all'|array
+}
+```
+
+### Trả về
+```typescript
+export interface Item {
+    title: string,
+    id: string
+}
+```
+
+```typescript
+export interface Response {
+    status: 'success',
+    data?: Item
+}
+```
+
+Dùng API [updateSmartBar](#5updatepatch-smartbar) để disable.
+## Update force Active Popup
+
+### Method: PUT
+
+### API endpoint:
+
+https://website.com/vge/myshopkit/v1/me/smartbars/active-force/:id
+
+### Params
+
+id của smartbar được active
+
+| Param | Type | Description | Default |
+| --- | --- | ----| --- | 
+| ids | string | list id của smartbar sẽ deactive |  |
+
+### Trả về
+
+```typescript
+export interface Smartbar {
+    data: Data
+    /** messege là tin nhắn trả lại trên sever*/
+    message: string
+    /** status là trạng thái code sau xử lý api*/
+    status: 'error' | 'success'
+}
+
+export interface Data {
+    /** id là id của list smartbar vừa update*/
+    id: string
+}
+```
