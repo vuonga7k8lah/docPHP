@@ -239,22 +239,28 @@ https://website.com/wp-json/myshopkit/v1/popups
 
 ````ts
 export interface Popup {
-  data: Data
-  /** messege là tin nhắn trả lại trên sever*/
+    data: Data
+    /** messege là tin nhắn trả lại trên sever*/
     message: string
     /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
 }
-
 export interface Data {
-  upgrade: Upgrade
- /** id là id của popup vừa tạo*/
+    upgrade: Upgrade
+    duplicate: Duplicate
+    /** id là id của popup vừa tạo*/
     id: string
 }
 
 export interface Upgrade {
-  isUpgrade: boolean
-  message?: string
+    isUpgrade: boolean
+    message?: string
+}
+
+export interface Duplicate {
+    isDuplicate: boolean
+    message?: string
+    ids?: string
 }
 ````
 
@@ -409,22 +415,29 @@ https://website.com/wp-json/myshopkit/v1/popups/:id
 
 ````ts
 export interface Popup {
-  data: Data
-  /** messege là tin nhắn trả lại trên sever*/
+    data: Data
+    /** messege là tin nhắn trả lại trên sever*/
     message: string
     /** status là trạng thái code sau xử lý api*/
     status: 'error' | 'success'
 }
 
 export interface Data {
-  upgrade: Upgrade
- /** id là id của popup vừa tạo*/
+    upgrade: Upgrade
+    duplicate: Duplicate
+    /** id là id của popup vừa tạo*/
     id: string
 }
 
 export interface Upgrade {
-  isUpgrade: boolean
-  message?: string
+    isUpgrade: boolean
+    message?: string
+}
+
+export interface Duplicate {
+    isDuplicate: boolean
+    message?: string
+    ids?: string
 }
 ````
 
@@ -501,3 +514,71 @@ export interface Popup {
     status: 'error' | 'success'
 }
 ````
+
+## My Publishing Campaign
+
+### Method: GET
+
+### API endpoint:
+
+https://website.com/vge/myshopkit/v1/me/popups/publishing
+
+### Params
+
+```typescript
+export interface PublishingPopup {
+    /** id là id của popup vừa tạo*/
+    showOnPage: 'all' | array
+}
+```
+
+### Trả về
+
+```typescript
+export interface Item {
+    title: string,
+    id: string
+}
+```
+
+```typescript
+export interface Response {
+    status: 'success',
+    data?: Item
+}
+```
+
+Dùng API [updatePopup](#5updatepatch-popup) để disable.
+
+## Update force Active Popup
+
+### Method: PUT
+
+### API endpoint:
+
+https://website.com/vge/myshopkit/v1/me/popups/active-force/:id
+
+### Params
+
+id của popup được active
+
+| Param | Type | Description | Default |
+| --- | --- | ----| --- | 
+| ids | string | list id của popup sẽ deactive |  |
+
+### Trả về
+
+```typescript
+export interface Popup {
+    data: Data
+    /** messege là tin nhắn trả lại trên sever*/
+    message: string
+    /** status là trạng thái code sau xử lý api*/
+    status: 'error' | 'success'
+}
+
+export interface Data {
+    /** id là id của list popup vừa update*/
+    id: string
+}
+```
