@@ -556,15 +556,12 @@ Dùng API [updatePopup](#5updatepatch-popup) để disable.
 
 ### API endpoint:
 
-https://website.com/vge/myshopkit/v1/me/popups/active-force/:id
+https://website.com/vge/myshopkit/v1/me/popups/:id/focus-active
 
 ### Params
 
 id của popup được active
 
-| Param | Type | Description | Default |
-| --- | --- | ----| --- | 
-| ids | string | list id của popup sẽ deactive |  |
 
 ### Trả về
 
