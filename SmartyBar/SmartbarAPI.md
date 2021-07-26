@@ -562,9 +562,6 @@ https://website.com/vge/myshopkit/v1/me/smartbars/active-force/:id
 
 id của smartbar được active
 
-| Param | Type | Description | Default |
-| --- | --- | ----| --- | 
-| ids | string | list id của smartbar sẽ deactive |  |
 
 ### Trả về
 
