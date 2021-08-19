@@ -3,7 +3,10 @@
 ## 1.Get auth
 
 ### Method:POST
-
+## param:
+form-data | type | value
+--- | --- | ---
+action | string | wookit_getCodeAuth
 ### URL: lấy biến global WookitGLOBAL.url 
 ![img.png](img.png)
 
