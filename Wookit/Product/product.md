@@ -1,6 +1,6 @@
 # Discount API
 
-## 1.Get All Discounts
+## 1.Get All Products
 
 ### Method:GET
 
@@ -13,10 +13,10 @@ Authorization | string | code xác thực
 
 ### API endpoint:
 
-https://website.com/wp-json/wookit/v1/coupons
+https://website.com/wp-json/wookit/v1/products
 
 ````ts
-export interface Discount {
+export interface Product {
     data: Data
     /** messege là tin nhắn trả lại trên sever*/
     message: string
@@ -24,15 +24,20 @@ export interface Discount {
 }
 
 export interface Data {
-    items: Item[]
+  items: Item[]
 }
 
 export interface Item {
-    code: string
-    description: string
-    endsAt: string
-    id: number
-    startsAt: string
-    status: string
+  id: number
+  title: string
+  link: string
+  image: Image
+  price: string[]
+}
+
+export interface Image {
+  src: string
+  width: number
+  height: number
 }
 ````
