@@ -1,4 +1,4 @@
-# Discount API
+# Product API
 
 ## 1.Get All Products
 
