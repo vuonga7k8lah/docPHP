@@ -80,7 +80,7 @@ config | string | config badges của sản phẩm | undefined
 #### method:PUT
 ### API endpoint:
 
-https://website.com/wp-json/magic-badges/v1/products/:id
+https://website.com/vge/magic-badges/v1/products/:id
 
 ####header
 
@@ -106,4 +106,4 @@ shopName | string | Tên của shop | undefined
 
 ### API endpoint:
 
-https://website.com/wp-json/magic-badges/v1/products/:id
+https://website.com/vge/magic-badges/v1/products/:id
