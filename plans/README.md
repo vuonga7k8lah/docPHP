@@ -83,6 +83,7 @@ config | string | config badges của sản phẩm | undefined
 https://website.com/wp-json/magic-badges/v1/products/:id
 
 ####header
+
 param | type | description |default
 --- | --- | ---| --- |
 shopName | string | Tên của shop | undefined
@@ -98,6 +99,7 @@ config | string | config badges của sản phẩm | undefined
 ## 5.Delete Badges Manual
 
 ####header
+
 param | type | description |default
 --- | --- | ---| --- |
 shopName | string | Tên của shop | undefined
