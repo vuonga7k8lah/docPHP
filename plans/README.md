@@ -1,92 +1,60 @@
-# Quy Định Plan
+# Product API
 
-```typescript
-export interface Plan {
-    showBrand: boolean
-    enableMailServices: boolean
-    enableAnalytics: boolean
-    goals: all | string[]
-    numberOfSmartbars: number
-    numberOfPopups: number
-    layout: all | string[]
-}
-```
+## Get Products
 
-## Goal Supported
+#### Method: GET
 
-**Là các target năng được hỗ trợ trong một plan.**
+#### Endpoint: https://website.com/wp-json/magic-badges/v1/products
 
-Có các Goal dưới đây:
+## Params
 
-1. email
-2. email_wheel
-3. email_coupon_follows
-4. social_follows
-5. target_image_url
-6. target_url
-6. announcement
+| Param | Type | Description | Default |
+| --- | --- | ----| --- |
+| limit| int | Số lượng items / trang. Maximum: 30. Quá 30 sử dụng default | 10 |
+| page | int | Page hiện tại | 1 |
+| status | 'active' / 'deactive' / 'any' | Trường hợp all thì trả về cả popups active và deactive| any |
+| ?pluck | string | Mỗi pluck cách nhau bởi dấu phẩy. Ví dụ: title, id. Trường hợp không có pluck trả lai hết| undefined|
 
-## Templates Supported
 
-**Các mẫu templates được hỗ trợ**
-https://www.dropbox.com/s/c1be9sluhau6r5i/Screen%20Shot%202021-06-30%20at%2016.43.00.png?dl=0
+## 2.Create Badges Manual
 
-## Các Plan Hỗ Trợ
+#### method:post
 
-### Original Free
+### API endpoint:
 
-Khi app mới lên, gói Free này sẽ mở nhiều tính năng hơn gói Free sau này.
+https://website.com/wp-json/magic-badges/v1/products
 
-```typescript
-export interface OriginalFree {
-    showBrand: true
-    enableMailServices: true
-    enableAnalytics: true
-    goal: all
-    numberOfSmartbars: 1
-    numberOfPopups: 1
-    layout: all
-}
-```
+##### body-param
 
-###  Free
+param | type | description |default
+--- | --- | ---| --- |
+shopName | string | Tên của shop | undefined
+productID | number | id của sản phẩm | undefined
+handle | string | tên sản phẩm dưới dạng slug | undefined
+config | string | config badges của sản phẩm | undefined
 
-```typescript
-export interface Free {
-    showBrand: true
-    enableMailServices: false
-    enableAnalytics: false
-    goal: ["email", "email_coupon_follows", "social_follows"]
-    numberOfSmartbars: 1
-    numberOfPopups: 1
-    layout: ["layout1"]
-}
-```
+````ts
 
-### Silver
+````
 
-```typescript
-export interface Silver {
-    showBrand: false
-    enableMailServices: true
-    enableAnalytics: true
-    goals: ["email", "email_coupon_follows", "social_follows", "target_url"]
-    numberOfSmartbars: 5
-    numberOfPopups: 5
-    layout: ["layout1", "layout2"]
-}
-```
+## 3.Update,Patch Badges Manual
 
-### Gold
+#### method:PUT
+### API endpoint:
 
-```typescript
-export interface Gold {
-    showBrand: false
-    enableMailServices: true
-    enableAnalytics: true
-    goals: "all"
-    numberOfSmartbars: 100
-    numberOfPopups: 100
-    layout: "all"
-}
-```
+https://website.com/wp-json/magic-badges/v1/products/:id
+
+##### x-www-form-urlencoded
+
+param | type | description |default
+--- | --- | ---| --- |
+shopName | string | Tên của shop | undefined
+productID | number | id của sản phẩm | undefined
+handle | string | tên sản phẩm dưới dạng slug | undefined
+config | string | config badges của sản phẩm | undefined
+
+## 4.Delete Badges Manual
+
+### API endpoint:
+
+https://website.com/wp-json/magic-badges/v1/products/:id
