@@ -29,10 +29,13 @@ date:string
 #### Method: GET
 
 #### Endpoint: https://website.com/vge/magic-badges/v1/products
+
 ####header
+
 param | type | description |default
 --- | --- | ---| --- |
 shopName | string | Tên của shop | undefined
+
 ## Params
 ````ts
 export interface Params {
@@ -54,9 +57,11 @@ export interface Query{
 https://website.com/vge/magic-badges/v1/products
 
 ####header:
+
 param | type | description |default
 --- | --- | ---| --- |
-shopName | string |  | undefined
+shopName | string | - | undefined
+
 ##### body-param
 
 param | type | description |default
@@ -76,6 +81,7 @@ config | string | config badges của sản phẩm | undefined
 ### API endpoint:
 
 https://website.com/wp-json/magic-badges/v1/products/:id
+
 ####header
 param | type | description |default
 --- | --- | ---| --- |
@@ -89,11 +95,13 @@ productID | number | id của sản phẩm | undefined
 slug | string | tên sản phẩm dưới dạng slug | undefined
 config | string | config badges của sản phẩm | undefined
 
-## 4.Delete Badges Manual
+## 5.Delete Badges Manual
+
 ####header
 param | type | description |default
 --- | --- | ---| --- |
 shopName | string | Tên của shop | undefined
+
 ### API endpoint:
 
 https://website.com/wp-json/magic-badges/v1/products/:id
