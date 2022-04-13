@@ -1,109 +1,160 @@
-# Product API
+# Callback Api Session Storage
 
-## 1.Get all Products
+## 1.Create Global code
 
-#### Method: GET
-
-#### Endpoint: https://website.com/vge/magic-badges/v1/full-products
-
-## Params
-````ts
-export interface Params {
-    /**limit Số lượng items / trang. Maximum: 30. Quá 30 sử dụng default 10*/
-    limit: int
-    /** page là page hiện tại default 1*/
-    page: int
-     /** Mỗi pluck cách nhau bởi dấu phẩy. Ví dụ: title, id. Trường hợp không có pluck trả lai hết*/
-    ?pluck: Pluck
-    status: 'active' | 'deactive' | 'all'
-}
-export interface Pluck{
-config: object,
-status: string,
-title:string,
-date:string
-}
-````
-## 2.Get Products 
-
-#### Method: GET
-
-#### Endpoint: https://website.com/vge/magic-badges/v1/products
-
-####header
-
-param | type | description |default
---- | --- | ---| --- |
-shopName | string | Tên của shop | undefined
-
-## Params
-````ts
-export interface Params {
-    query:Query[]
-   }
-export interface Query{
-    /**title tên sản phẩm*/
-    title: string
-    sluck: string
-}
-````
-
-## 3.Create Badges Manual
-
-#### method:post
+### Method:POST
 
 ### API endpoint:
 
-https://website.com/vge/magic-badges/v1/products
+https://webiste/veda/v1/global-code
 
-####header:
+[//]: # (####headers)
 
-param | type | description |default
---- | --- | ---| --- |
-shopName | string | - | undefined
+[//]: # (token : cad38277b27a18b06c5252294723c5239a09e32a)
 
-##### body-param
-
-param | type | description |default
---- | --- | ---| --- |
-shopName | string | Tên của shop | undefined
-productID | number |  | undefined
-slug | string | tên sản phẩm dưới dạng slug | undefined
-config | string | config badges của sản phẩm | undefined
+##### parameters
 
 ````ts
+export interface Data {
+    type: 'utils' | 'plugins';
+    scss: String;
+    js: String;
+    name: String;
+}
 
 ````
 
-## 4.Update,Patch Badges Manual
+Response
 
-#### method:PUT
-### API endpoint:
+````ts
+export interface Response {
+    data: Data
+    /** messege là tin nhắn trả lại trên sever*/
+    message: string
+    status: string
+}
 
-https://website.com/vge/magic-badges/v1/products/:id
+export interface Data {
+    id: string
+}
 
-####header
+````
 
-param | type | description |default
---- | --- | ---| --- |
-shopName | string | Tên của shop | undefined
-##### x-www-form-urlencoded
+## 2.Delete global code
 
-param | type | description |default
---- | --- | ---| --- |
-shopName | string | Tên của shop | undefined
-productID | number | id của sản phẩm | undefined
-slug | string | tên sản phẩm dưới dạng slug | undefined
-config | string | config badges của sản phẩm | undefined
-
-## 5.Delete Badges Manual
-
-####header
-
-param | type | description |default
---- | --- | ---| --- |
-shopName | string | Tên của shop | undefined
+### Method:DELETE
 
 ### API endpoint:
 
-https://website.com/vge/magic-badges/v1/products/:id
+https://webiste/veda/v1/global-code/:id
+
+##### parameters
+
+````ts
+export interface parameters {
+    id: string;
+}
+
+
+````
+
+#### Response
+
+````ts
+export interface Statistic {
+    data: []
+    /** messege là tin nhắn trả lại trên sever*/
+    message: string
+    status: string
+}
+````
+
+## 3.GET global codes
+
+### Method:GET
+
+### API endpoint:
+
+https://webiste/veda/v1/global-code
+
+#### Param
+
+param | type | description
+--- | --- | ---
+limit | string |
+page | string |
+s | string |
+
+#### Response
+se
+````ts
+export interface Statistic {
+    data: Data
+    /** messege là tin nhắn trả lại trên sever*/
+    message: string
+    status: string
+}
+
+export interface Data {
+    id: Number
+    name: string
+    scss: string
+    js: string
+    type: string
+}
+````
+
+## 4.Get global code
+
+### Method:POST
+
+### API endpoint:
+
+https://webiste/veda/v1/global-code/:id
+
+##### parameters
+
+#### Param
+
+Response
+
+````ts
+export interface Response {
+    data: Data
+    /** messege là tin nhắn trả lại trên sever*/
+    message: string
+    status: string
+}
+
+export interface Data {
+    shopName: string
+}
+
+````
+
+## 5.Get global code url
+
+### Method:GET
+
+### API endpoint:
+
+https://webiste/veda/v1/global-code-url
+
+##### parameters
+
+
+#### Response
+
+````ts
+export interface Statistic {
+    data: []
+    /** messege là tin nhắn trả lại trên sever*/
+    message: string
+    status: string
+}
+
+export interface Data {
+    scss: string
+    js: string
+}
+````
