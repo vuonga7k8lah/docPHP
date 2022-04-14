@@ -158,3 +158,34 @@ export interface Data {
     js: string
 }
 ````
+
+## 6.Update global code
+
+### Method:Update
+
+### API endpoint:
+
+https://webiste/veda/v1/global-code/:id
+
+
+#### Param
+param | type | description
+--- | --- | ---
+scss | string | 
+js | string |
+
+Response
+
+````ts
+export interface Response {
+    data: Data
+    /** messege là tin nhắn trả lại trên sever*/
+    message: string
+    status: string
+}
+
+export interface Data {
+    shopName: string
+}
+
+````
