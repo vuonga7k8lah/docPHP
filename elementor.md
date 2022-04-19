@@ -1,6 +1,6 @@
 # Type Elementor
 
-* [1.Text](#1test)
+* [1.Text](#1text)
 * [2.Number](#2number)
 * [3.Textarea](#3textarea)
 * [4.Wysiwyg](#4wysiwyg)
@@ -20,20 +20,23 @@
 * [18.Tabs](#18tabs)
 * [19.Tab](#19tab)
 * [20.Session](#20session)
+* [21.Link](#21link)
+* [22.Media](#22media)
+* [23.Conditional](#23conditional)
 
-## 1.test
+## 1.text
 
 #### Arguments
 
 ````ts
 export interface Text {
     label: string
-    title: string
+    title?: string
     id: string
     name: string
     type: text
-    default: string
-    placeholder: string
+    default?: string
+    placeholder?: string
 }
 
 ````
@@ -59,14 +62,14 @@ export interface Text {
 ````ts
 export interface Number {
     label: string
-    title: string
+    title?: string
     id: string
     name: string
     type: number
-    default: string
-    placeholder: string
-    min: string
-    max: string
+    default?: string
+    placeholder?: string
+    min?: string
+    max?: string
 }
 
 ````
@@ -95,27 +98,36 @@ export interface Number {
 export interface Textarea {
     label: string
     name: string
-    rows: int
+    rows?: int
+    condition?: Codition
     type: textarea
-    default: string
-    placeholder: string
-    description: string
+    default?: string
+    placeholder?: string
+    description?: string
 }
-
+export interface Codition{
+    /** điều kiện hiển thị các file không áp dụng đối với các file section,tabs,tab,array 
+     * id ở đây là id của field và value là giá trị của field khi đạt điều kiện để hiển thị đối với nhiều trường thì 
+     sẽ là array còn 1 thì là string
+     * */
+    id:value
+}
 ````
 
 #### Example
 
 ````json
-{
-  "id": "xfd455dd4311",
-  "name": "xfd455dd4311",
-  "label": "Description",
-  "type": "textarea",
-  "default": "Default description",
-  "rows": 10,
-  "placeholder": "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
-}
+
+  {
+    "id": "xfd455dd4311",
+    "name": "xfd455dd4311",
+    "label": "Description",
+    "type": "textarea",
+    "default": "Default description",
+    "rows": 10,
+    "condition": {},
+    "placeholder": "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+  }
 
 ````
 
@@ -128,9 +140,9 @@ export interface Wysiwyg {
     label: string
     name: string
     type: wysiwyg
-    default: string
-    placeholder: string
-    description: string
+    default?: string
+    placeholder?: string
+    description?: string
 }
 
 ````
@@ -158,11 +170,11 @@ export interface Code {
     label: string
     id: string
     name: string
-    language: string // default html
+    language?: string // default html
     type: code
-    rows: 10
-    default: string
-    description: string
+    rows?: 10
+    default?: string
+    description?: string
 }
 
 ````
@@ -190,7 +202,7 @@ export interface Hidden {
     id: string
     name: string
     type: hidden
-    default: string
+    default?: string
 }
 
 ````
@@ -216,11 +228,11 @@ export interface Switcher {
     id: string
     name: string
     type: switcher
-    default: string
-    description: string
-    label_on: string
-    label_off: string
-    return_value: string
+    default?: string
+    description?: string
+    label_on?: string
+    label_off?: string
+    return_value?: string
 }
 
 ````
@@ -241,7 +253,7 @@ export interface Switcher {
 
 ````
 
-## 8.toggle
+## 8.popover-toggle
 
 ````ts
 export interface Toggle {
@@ -249,11 +261,13 @@ export interface Toggle {
     id: string
     name: string
     type: toggle
-    default: string
-    description: string
-    label_on: string
-    label_off: string
-    return_value: string
+    default?: string
+    description?: string
+    label_on?: string
+    label_off?: string
+    return_value?: string
+    /** mảng các fieids*/
+    fields: []
 }
 
 ````
@@ -282,9 +296,9 @@ export interface Select {
     id: string
     name: string
     type: select
-    default: string
-    description: string
-    options: object
+    default?: string
+    description?: string
+    options?: object
 }
 
 ````
@@ -316,7 +330,7 @@ export interface Select2 {
     name: string
     type: select2
     default: string | object
-    description: string
+    description?: string
     multiple: boolean
     options: object
 }
@@ -344,6 +358,7 @@ export interface Select2 {
 }
 
 ````
+
 ## 11.choose
 
 ````ts
@@ -352,8 +367,8 @@ export interface Choose {
     id: string
     name: string
     type: choose
-    default: string
-    description: string
+    default?: string
+    description?: string
     toggle: boolean
     options: object
 }
@@ -396,9 +411,9 @@ export interface Color {
     id: string
     name: string
     type: color
-    default: string
-    description: string
-    alpha: boolean
+    default?: string
+    description?: string
+    alpha?: boolean
 }
 
 ````
@@ -423,10 +438,10 @@ export interface Icons {
     id: string
     name: string
     type: icons
-    default: string
-    description: string
-    include: object
-    exclude: object
+    default?: {}
+    description?: string
+    include?: object
+    exclude?: object
 }
 
 ````
@@ -438,7 +453,11 @@ export interface Icons {
   "id": "xfd45ss5dssd4311",
   "name": "xfd45ss5dssd4311",
   "label": "Title Color",
-  "type": "icons"
+  "type": "icons",
+  "default": {
+    "value": "fas fa-star",
+    "library": "solid"
+  }
 }
 
 ````
@@ -451,8 +470,8 @@ export interface Font {
     id: string
     name: string
     type: font
-    default: string
-    description: string
+    default?: string
+    description?: string
     options: object
 }
 
@@ -467,12 +486,13 @@ export interface Font {
   "label": "Title Color",
   "type": "font",
   "default": "Open Sans",
-  "selectors" : {
-    "{{WRAPPER}} .title":"font-family: {{VALUE}}"
+  "selectors": {
+    "{{WRAPPER}} .title": "font-family: {{VALUE}}"
   }
 }
 
 ````
+
 ## 15.dateTime
 
 ````ts
@@ -480,9 +500,9 @@ export interface DateTime {
     label: string
     name: string
     id: string
-    type: font
-    default: string
-    description: string
+    type: dateTime
+    default?: string
+    description?: string
 }
 
 ````
@@ -507,8 +527,11 @@ export interface Gallery {
     id: string
     name: string
     type: gallery
-    default: string
-    description: string
+    default?: Default[]
+    description?: string
+}
+export interface Default{
+    url:string
 }
 
 ````
@@ -521,10 +544,15 @@ export interface Gallery {
   "name": "xfd45ss5dssd4311",
   "label": "Add Images",
   "type": "gallery",
-  "default": []
+  "default": [
+    {
+      "url": "sss"
+    }
+  ]
 }
 
 ````
+
 ## 17.array
 
 ````ts
@@ -533,9 +561,9 @@ export interface Array {
     id: string
     name: string
     type: array
-    default: string | []
-    description: string,
-    fields : [] // mảng các fieids
+    default:[]
+    description?: string,
+    fields: [] // mảng các fieids
 }
 
 ````
@@ -590,6 +618,7 @@ export interface Array {
 }
 
 ````
+
 ## 18.tabs
 
 ````ts
@@ -597,11 +626,9 @@ export interface Tabs {
     label: string
     id: string
     name: string
-    type: gallery
-    default: string
-    default: string | []
-    description: string,
-    fields : [] // mảng các fieids
+    type: tabs
+    /** mảng các fieids*/
+    fields: []
 }
 
 ````
@@ -613,11 +640,11 @@ export interface Tabs {
   "id": "xfd45ss5dssd4311",
   "name": "xfd45ss5dssd4311",
   "label": "Add Images",
-  "type": "gallery",
-  "default": []
+  "type": "tabs"
 }
 
 ````
+
 ## 19.tab
 
 ````ts
@@ -625,10 +652,9 @@ export interface Tab {
     label: string
     id: string
     name: string
-    type: gallery
-    default: string | []
-    description: string,
-    fields : [] // mảng các fieids
+    type: tab
+    /** mảng các fieids*/
+    fields: []
 }
 
 ````
@@ -640,22 +666,24 @@ export interface Tab {
   "id": "xfd45ss5dssd4311",
   "name": "xfd45ss5dssd4311",
   "label": "Add Images",
-  "type": "gallery",
+  "type": "tab",
   "default": []
 }
 
 ````
-## 20.session
+
+## 20.section
 
 ````ts
-export interface Session {
+export interface Section {
     label: string
     id: string
     name: string
-    type: gallery
-    default: string | []
-    description: string,
-    fields : [] // mảng các fieids
+    type: section
+    default: []
+    description?: string,
+    /** mảng các fieids*/
+    fields: [] 
 }
 
 ````
@@ -667,8 +695,132 @@ export interface Session {
   "id": "xfd45ss5dssd4311",
   "name": "xfd45ss5dssd4311",
   "label": "Add Images",
-  "type": "gallery",
+  "type": "section",
   "default": []
 }
+
+````
+
+## 21.media
+
+````ts
+export interface Media {
+    label: string
+    id: string
+    name: string
+    type: media
+    default?: Default
+    /**  có thể là video,svg,image*/
+    media_types?: ['image']
+    description?: string
+}
+
+export interface Default {
+    url: string
+}
+
+````
+
+#### Example
+
+````json
+{
+  "id": "id_data_image",
+  "type": "media",
+  "default": {
+    "url": "http://0.0.0.0:9005/wp-content/uploads/2022/04/download.jpeg"
+  },
+  "name": "image",
+  "label": "Image"
+}
+
+````
+
+## 22.url
+
+````ts
+export interface Url {
+    label: string
+    id: string
+    name: string
+    type: url
+    default?: Default
+    placeholder?: string
+    description?: string
+}
+
+export interface Default {
+    url: string,
+    is_external: boolean,
+    nofollow: boolean,
+    custom_attributes: string
+}
+
+````
+
+#### Example
+
+````json
+{
+  "id": "id_data_url",
+  "type": "url",
+  "default": {
+    "url": "http://0.0.0.0:9005/wp-content/uploads/2022/04/download.jpeg",
+    "is_external": true,
+    "nofollow": true,
+    "custom_attributes": ""
+  },
+  "name": "url",
+  "label": "url"
+}
+
+````
+## 23.conditional
+
+#### Arguments
+
+````ts
+export interface Conditional {
+    label: string
+    name: string
+    rows?: int
+    condition: Codition
+    type: textarea
+    default?: string
+    placeholder?: string
+    description?: string
+}
+export interface Codition{
+    /** điều kiện hiển thị các file không áp dụng đối với các file section,tabs,tab,array 
+     * id ở đây là id của field và value là giá trị của field khi đạt điều kiện để hiển thị đối với nhiều trường thì 
+     sẽ là array còn 1 thì là string
+     * */
+    id:value
+}
+````
+
+#### Example
+
+````json
+[
+  {
+    "id": "togge_1",
+    "name": "xfd455dd4311",
+    "label": "Description",
+    "type": "switcher"
+  },
+  {
+    "id": "xfd455dd4311",
+    "name": "xfd455dd4311",
+    "label": "Description",
+    "type": "textarea",
+    "default": "Default description",
+    "rows": 10,
+    "condition": {
+      "togge_1": "yes"
+    },
+    "placeholder": "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+  }
+]
 
 ````
