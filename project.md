@@ -668,3 +668,24 @@ export interface Thumbnail {
     height: number
 }
 ````
+## 4.delete Image
+
+### Endpoint:
+
+https://website.com/wp-json/wiloke-smart-mockup/v1/images/:id
+
+#### Method: DELETE
+
+### Header
+
+key | type | value
+--- | --- | ---
+Authorization | string | Basic Auth
+
+````ts
+export interface GetImage {
+    id: string
+    msg: string
+    status: 'error' | 'success'
+}
+````
