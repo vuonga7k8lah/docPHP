@@ -538,7 +538,7 @@ export interface Items {
 ````
 # Upload API
 
-## 1.Upload IMG
+## 13.Upload IMG
 
 ### Endpoint:
 
@@ -582,7 +582,7 @@ export interface Thumbnails {
 }
 ````
 
-## 2.Get Images
+## 14.Get Images
 
 ### Endpoint:
 
@@ -631,7 +631,7 @@ export interface Thumbnails {
 
 ````
 
-## 3.Get Image
+## 15.Get Image
 
 ### Endpoint:
 
@@ -668,7 +668,7 @@ export interface Thumbnail {
     height: number
 }
 ````
-## 4.delete Image
+## 16.delete Image
 
 ### Endpoint:
 
